@@ -8,6 +8,7 @@ Cube3D is a graphical project using MiniLibX to render simple 3D scenes and lear
 ## Table of Contents
 - [Flags Used](flags/flags.md)
 - [Functions Used](functions/functions.md)
+- [Testing Log](testing/testing.md)
 
 ## Quick Start
 - Build: `make`

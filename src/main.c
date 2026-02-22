@@ -1,14 +1,15 @@
 #include "../minilibx-linux/mlx.h"
 #include <stdlib.h>
 
+# define MLX_ERROR		1
+# define WINDOW_WIDTH	400
+# define WINDOW_HEIGHT	400
+
 int	main(void)
 {
-	void	*mlx_ptr;
+	t_mlx_data	data;
 
-	mlx_ptr = mlx_init();
-	if (NULL == mlx_ptr)
-		return (1);
-	mlx_destroy_display(mlx_ptr);
-	free(mlx_ptr);
-	return (0);
+	data.mlx_ptr = mlx_init();
+	if (data.mlx_ptr == NULL)
+		retur(MLX_ERROR);
 }
