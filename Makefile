@@ -1,5 +1,5 @@
 # Standard Makefile for MiniLibX project (42 school style)
-NAME = cube3d
+NAME = cub3d
 SRC = src/main.c
 OBJ = $(SRC:.c=.o)
 INCLUDES = -Iincludes -Iminilibx-linux
