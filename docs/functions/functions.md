@@ -1,4 +1,6 @@
-# [Back to Main Documentation](../README.md)
+<a name="top"></a>
+# [⬅️ Back to Main Documentation](../README.md)
+
 # Functions Used in main.c
 
 ## MiniLibX Functions

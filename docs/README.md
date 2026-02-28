@@ -1,9 +1,12 @@
 # Cube3D Project Documentation
 
-Welcome to the documentation for our Cube3D project (42 School).
+Welcome to the documentation for our Cub3D project (42 School).
 
 ## Project Overview
-Cube3D is a graphical project using MiniLibX to render simple 3D scenes and learn basic graphics programming in C.
+Cub3D is a graphical project using MiniLibX to render simple 3D scenes and learn basic graphics programming in C.
+
+## Project roadmap
+- [Check roadmap](roadmap/roadmap.md)
 
 ## Table of Contents
 - [Flags Used](flags/flags.md)
@@ -16,6 +19,7 @@ Cube3D is a graphical project using MiniLibX to render simple 3D scenes and lear
 
 ## What is MiniLibX?
 MiniLibX is a lightweight graphics library for simple window and image manipulation, used in 42 School projects.
+- [MiniLibX Official Documentation](https://harm-smits.github.io/42docs/libs/minilibx)
 
 ---
 
