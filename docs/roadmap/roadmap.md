@@ -9,13 +9,13 @@
 ✅ — done  
 
 ## 🟢 STAGE 1 — PROJECT SKELETON
-- ⬜ TODO: create Makefile
-- ⬜ TODO: link mlx and libft correctly
-- ⬜ TODO: create base headers (cub3d.h)
-- ⬜ TODO: create main.c
-- ⬜ TODO: create basic structs (t_data, t_map, t_player)
-- ⬜ TODO: init mlx (mlx_init + mlx_new_window)
-- ⬜ TODO: handle clean exit (ESC + window close)
+- ✅ TODO: create Makefile
+- ✅ TODO: link mlx and libft correctly
+- ✅ TODO: create base headers (cub3d.h)
+- 🟩 TODO: create main.c
+- 🟦 TODO: create basic structs (t_data, t_map, t_player)
+- 🟩 TODO: init mlx (mlx_init + mlx_new_window)
+- 🟫 TODO: handle clean exit (ESC + window close)
 
 ## 🟡 STAGE 2 — PARSING .cub FILE
 - ⬜ TODO: open .cub file
