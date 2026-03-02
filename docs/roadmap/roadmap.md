@@ -11,7 +11,7 @@
 ## 🟢 STAGE 1 — PROJECT SKELETON
 - ⬜ TODO: create Makefile
 - ⬜ TODO: link mlx and libft correctly
-- ⬜ TODO: create base headers (cube3d.h)
+- ⬜ TODO: create base headers (cub3d.h)
 - ⬜ TODO: create main.c
 - ⬜ TODO: create basic structs (t_data, t_map, t_player)
 - ⬜ TODO: init mlx (mlx_init + mlx_new_window)
@@ -102,7 +102,7 @@ src/
         free.c
         error.c
 include/
-    cube3d.h
+    cub3d.h
 ```
 
 [⬆️ Back to Top](#top)
