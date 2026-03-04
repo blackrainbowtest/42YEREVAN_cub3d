@@ -34,7 +34,7 @@
 /* ************************************************************************** */
 # define KEY_ESC 65307
 # define EV_KEYDOWN 2
-# define EV_KEYUP 17
+# define EVT_DESTROY 17
 # define KEY_A 97
 # define KEY_D 100
 # define KEY_W 119
@@ -74,5 +74,16 @@ typedef struct s_data
 }	t_data;
 
 void	render_test(t_data *d);
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                               cub3d API                                    */
+/*                                                                            */
+/* ************************************************************************** */
+
+int	ft_app_init(t_data *d);
+int	ft_on_keydown(int keycode, void *param);
+int	ft_on_destroy(void *param);
+int	ft_clean_exit(t_data *d, int code);
 
 #endif	//CUB3D_H
