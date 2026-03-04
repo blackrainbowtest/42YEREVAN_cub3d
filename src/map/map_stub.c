@@ -14,7 +14,7 @@
 
 int	map_load_stub(t_map *map)
 {
-	static char *grid[] = {
+	static char	*grid[] = {
 		"111111",
 		"100001",
 		"100001",
@@ -23,7 +23,6 @@ int	map_load_stub(t_map *map)
 		NULL
 	};
 
-	// grid = parse_cub();
 	map->grid = grid;
 	map->width = 6;
 	map->height = 5;

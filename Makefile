@@ -4,7 +4,14 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 SRC_DIR = src
-SRC = $(shell find $(SRC_DIR) -type f -name '*.c')
+SRC = \
+	$(SRC_DIR)/main.c \
+	$(SRC_DIR)/hooks/hooks.c \
+	$(SRC_DIR)/init/init.c \
+	$(SRC_DIR)/map/map_stub.c \
+	$(SRC_DIR)/render/render.c \
+	$(SRC_DIR)/utils/error.c \
+	$(SRC_DIR)/utils/exit.c
 
 OBJ = $(SRC:.c=.o)
 
