@@ -66,11 +66,26 @@ typedef struct s_img
 	int		endian;
 }	t_img;
 
+typedef struct s_map
+{
+	char	**grid;
+	int		width;
+	int		height;
+
+	double	player_x;
+	double	player_y;
+
+	double	dir_x;
+	double	dir_y;
+}	t_map;
+
 typedef struct s_data
 {
 	t_mlx	mlx;
-	int		exit_code;
 	t_img	img;
+	t_map	map;
+
+	int		exit_code;
 }	t_data;
 
 void	render_test(t_data *d);
