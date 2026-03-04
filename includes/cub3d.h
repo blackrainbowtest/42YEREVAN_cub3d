@@ -81,9 +81,9 @@ void	render_test(t_data *d);
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_app_init(t_data *d);
-int	ft_on_keydown(int keycode, void *param);
-int	ft_on_destroy(void *param);
-int	ft_clean_exit(t_data *d, int code);
+int	app_init(t_data *d);
+int	on_keydown(int keycode, void *param);
+int	on_destroy(void *param);
+int	clean_exit(t_data *d, int code);
 
 #endif	//CUB3D_H
