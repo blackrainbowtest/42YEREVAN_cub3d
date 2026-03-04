@@ -1,17 +1,27 @@
-# Standard Makefile for MiniLibX project (42 school style)
 NAME = cub3d
-SRC = src/main.c src/render.c
+
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+
+SRC_DIR = src
+HOOKS_DIR = hooks
+
+SRC_MAIN = main.c
+SRC_HOOKS = hooks.c
+
+SRC =  $(addprefix $(SRC_DIR)/, $(SRC_MAIN)) \
+       $(addprefix $(SRC_DIR)/$(HOOKS_DIR)/, $(SRC_HOOKS))
+
 OBJ = $(SRC:.c=.o)
+
 INCLUDES = -Iincludes -Iminilibx-linux
 
 MLX_DIR = minilibx-linux
 MLX_LIB = $(MLX_DIR)/libmlx.a
 
-MLX_DIR = minilibx-linux
-MLX_LIB = $(MLX_DIR)/libmlx.a
+LIBFT_DIR = libft
+LIBFT_LIB = $(LIBFT_DIR)/libft.a
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror $(INCLUDES)
 LDFLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11
 
 all: $(MLX_LIB) $(LIBFT_LIB) $(NAME)
@@ -22,8 +32,8 @@ $(MLX_LIB):
 $(LIBFT_LIB):
 	$(MAKE) -C $(LIBFT_DIR)
 
-$(NAME): $(OBJ) $(LIBFT_LIB)
-	$(CC) $(CFLAGS) $(OBJ) $(LDFLAGS) -o $(NAME)
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT_LIB) $(LDFLAGS) -o $(NAME)
 
 clean:
 	rm -f $(OBJ)
@@ -32,7 +42,6 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-	$(MAKE) -C $(MLX_DIR) clean
 	$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
