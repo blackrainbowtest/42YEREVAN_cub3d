@@ -100,5 +100,6 @@ int	app_init(t_data *d);
 int	on_keydown(int keycode, void *param);
 int	on_destroy(void *param);
 int	clean_exit(t_data *d, int code);
+int	map_load_stub(t_map *map);
 
 #endif	//CUB3D_H
