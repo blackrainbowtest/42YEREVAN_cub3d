@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramarak <aramarak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 16:14:38 by aramarak          #+#    #+#             */
-/*   Updated: 2026/03/02 20:00:28 by aramarak         ###   ########.fr       */
+/*   Updated: 2026/03/04 22:08:03 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 /* ************************************************************************** */
 # define KEY_ESC 65307
 # define EV_KEYDOWN 2
-# define EVT_DESTROY 17
+# define EV_DESTROY 17
 # define KEY_A 97
 # define KEY_D 100
 # define KEY_W 119

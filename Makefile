@@ -4,13 +4,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 SRC_DIR = src
-HOOKS_DIR = hooks
-
-SRC_MAIN = main.c
-SRC_HOOKS = hooks.c
-
-SRC =  $(addprefix $(SRC_DIR)/, $(SRC_MAIN)) \
-       $(addprefix $(SRC_DIR)/$(HOOKS_DIR)/, $(SRC_HOOKS))
+SRC = $(shell find $(SRC_DIR) -type f -name '*.c')
 
 OBJ = $(SRC:.c=.o)
 
@@ -19,7 +13,7 @@ INCLUDES = -Iincludes -Iminilibx-linux
 MLX_DIR = minilibx-linux
 MLX_LIB = $(MLX_DIR)/libmlx.a
 
-LIBFT_DIR = libft
+LIBFT_DIR = libraries/libft
 LIBFT_LIB = $(LIBFT_DIR)/libft.a
 
 LDFLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11
@@ -34,6 +28,9 @@ $(LIBFT_LIB):
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT_LIB) $(LDFLAGS) -o $(NAME)
+
+%.o: %.c
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)

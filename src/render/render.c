@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramarak <aramarak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 19:33:57 by aramarak          #+#    #+#             */
-/*   Updated: 2026/03/02 20:00:49 by aramarak         ###   ########.fr       */
+/*   Updated: 2026/03/04 22:04:58 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "cub3d.h"
 
 static void	ft_put_pixel(t_img *img, int x, int y, int color)
 {
