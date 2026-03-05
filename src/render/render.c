@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 19:33:57 by aramarak          #+#    #+#             */
-/*   Updated: 2026/03/05 21:45:51 by root             ###   ########.fr       */
+/*   Updated: 2026/03/05 21:56:01 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,15 @@ void	render_test(t_data *d)
 		}
 		y++;
 	}
+	draw_minimap(d);
 	mlx_put_image_to_window(d->mlx.mlx, d->mlx.win, d->img.img, 0, 0);
+}
+
+int	render_frame(void *param)
+{
+	t_data	*d;
+
+	d = (t_data *)param;
+	render_test(d);
+	return (0);
 }

@@ -18,6 +18,7 @@ SRC = \
 	$(SRC_DIR)/utils/exit.c
 
 OBJ = $(SRC:.c=.o)
+HEADER = includes/cub3d.h
 
 INCLUDES = -Iincludes -Iminilibx-linux
 
@@ -40,7 +41,7 @@ $(LIBFT_LIB):
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT_LIB) $(LDFLAGS) -o $(NAME)
 
-%.o: %.c
+%.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:

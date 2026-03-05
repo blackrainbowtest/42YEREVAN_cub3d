@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 16:14:38 by aramarak          #+#    #+#             */
-/*   Updated: 2026/03/05 21:45:51 by root             ###   ########.fr       */
+/*   Updated: 2026/03/05 22:00:36 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 # define MLX_ERROR		1
-# define WINDOW_WIDTH	400
-# define WINDOW_HEIGHT	400
+# define WINDOW_WIDTH	800
+# define WINDOW_HEIGHT	800
 # define MINIMAP_TILE	8
 # define MINIMAP_X		10
 # define MINIMAP_Y		10
@@ -113,6 +113,7 @@ typedef struct s_data
 /* ************************************************************************** */
 void		render_test(t_data *d);
 void		ft_put_pixel(t_img *img, int x, int y, int color);
+int			render_frame(void *param);
 /* ************************************************************************** */
 /*                                                                            */
 /*                               cub3d API                                    */
