@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "cub3d.h"
 
-static void	draw_square(t_data *d, int x, int y, int color)
+void	draw_square(t_data *d, int x, int y, int color)
 {
 	int	i;
 	int	j;

@@ -9,6 +9,7 @@ SRC = \
 	$(SRC_DIR)/hooks/hooks.c \
 	$(SRC_DIR)/init/init.c \
 	$(SRC_DIR)/map/map_stub.c \
+	$(SRC_DIR)/map/map_query.c \
 	$(SRC_DIR)/render/render.c \
 	$(SRC_DIR)/render/minimap/minimap.c \
 	$(SRC_DIR)/render/minimap/minimap_utils.c \
