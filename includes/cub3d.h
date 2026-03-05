@@ -21,6 +21,7 @@
 # define MLX_ERROR		1
 # define WINDOW_WIDTH	400
 # define WINDOW_HEIGHT	400
+# define MINIMAP_TILE	8
 
 # include "../minilibx-linux/mlx.h"
 # include <stdlib.h>
