@@ -10,6 +10,9 @@ SRC = \
 	$(SRC_DIR)/init/init.c \
 	$(SRC_DIR)/map/map_stub.c \
 	$(SRC_DIR)/render/render.c \
+	$(SRC_DIR)/render/minimap/minimap.c \
+	$(SRC_DIR)/render/minimap/minimap_utils.c \
+	$(SRC_DIR)/render/minimap/minimap_ray.c \
 	$(SRC_DIR)/utils/error.c \
 	$(SRC_DIR)/utils/exit.c
 
