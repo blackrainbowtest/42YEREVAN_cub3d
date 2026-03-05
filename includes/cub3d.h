@@ -22,6 +22,12 @@
 # define WINDOW_WIDTH	400
 # define WINDOW_HEIGHT	400
 # define MINIMAP_TILE	8
+# define RAY_STEP		0.02
+# define RAY_MAX_DIST	20.0
+
+# define ICN_WALL		'1'
+# define ICN_GROUND		'0'
+# define ICN_PLAYER		'P'
 
 # include "../minilibx-linux/mlx.h"
 # include <stdlib.h>
@@ -113,8 +119,6 @@ int	app_init(t_data *d);
 int	on_keydown(int keycode, void *param);
 int	on_destroy(void *param);
 int	clean_exit(t_data *d, int code);
-int	map_load_stub(t_map *map);
-
 /* ************************************************************************** */
 /*                           minimap_utils.c                                  */
 /* ************************************************************************** */
@@ -127,5 +131,13 @@ void	draw_map_tiles(t_data *d);
 void	draw_player_minimap(t_data *d);
 void	draw_player_direction(t_data *d);
 void	draw_line(t_data *d, t_line l);
+/* ************************************************************************** */
+/*                              map_query.c                                   */
+/* ************************************************************************** */
+int	is_wall(t_map *m, double x, double y);
+/* ************************************************************************** */
+/*                              map_stub .c                                   */
+/* ************************************************************************** */
+int	map_load_stub(t_map *map);
 
 #endif	//CUB3D_H
