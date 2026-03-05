@@ -17,6 +17,7 @@ void	draw_minimap(t_data *d)
 	draw_map_tiles(d);
 	draw_player_minimap(d);
 	draw_player_direction(d);
+	draw_minimap_ray(d);
 }
 
 void	draw_map_tiles(t_data *d)
@@ -35,9 +36,9 @@ void	draw_map_tiles(t_data *d)
 			screen_x = MINIMAP_X + x * MINIMAP_TILE;
 			screen_y = MINIMAP_Y + y * MINIMAP_TILE;
 			if (d->map.grid[y][x] == '1')
-				draw_square(d, screen_x, screen_y, 0x00FFFFFF);
+				draw_square(d, screen_x, screen_y, MAP_COLOR_WALL);
 			else
-				draw_square(d, screen_x, screen_y, 0x00333333);
+				draw_square(d, screen_x, screen_y, MAP_COLOR_ELSE);
 			x++;
 		}
 		y++;
@@ -51,7 +52,7 @@ void	draw_player_minimap(t_data *d)
 
 	px = MINIMAP_X + d->map.player_x * MINIMAP_TILE;
 	py = MINIMAP_Y + d->map.player_y * MINIMAP_TILE;
-	draw_square(d, px - 2, py - 2, 0x00FF0000);
+	draw_square(d, px - 2, py - 2, MAP_COLOR_PLYR);
 }
 
 void	draw_player_direction(t_data *d)
@@ -69,7 +70,7 @@ void	draw_player_direction(t_data *d)
 	line.y0 = y0;
 	line.x1 = x0 + d->map.dir_x * length;
 	line.y1 = y0 + d->map.dir_y * length;
-	line.color = 0x00FFFF00;
+	line.color = MAP_COLOR_PLDR;
 
 	draw_line(d, line);
 }

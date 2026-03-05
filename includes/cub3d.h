@@ -13,6 +13,10 @@
 #ifndef CUB3D_H
 # define CUB3D_H
 
+# include "../minilibx-linux/mlx.h"
+# include <stdlib.h>
+# include <stdio.h>
+# include <unistd.h>
 /* ************************************************************************** */
 /*                                                                            */
 /*                               main defines                                 */
@@ -24,20 +28,21 @@
 # define MINIMAP_TILE	8
 # define RAY_STEP		0.02
 # define RAY_MAX_DIST	20.0
-
+/* ************************************************************************** */
+/*                               map types                               */
+/* ************************************************************************** */
 # define ICN_WALL		'1'
 # define ICN_GROUND		'0'
-# define ICN_PLAYER		'P'
+# define ICN_PLAYER		'N'
 
-# include "../minilibx-linux/mlx.h"
-# include <stdlib.h>
-# include <stdio.h>
-# include <unistd.h>
+# define MAP_COLOR_WALL		0x00FFFFFF
+# define MAP_COLOR_ELSE		0x00333333
+# define MAP_COLOR_PLYR		0x00FF0000
+# define MAP_COLOR_PLDR		0x00FFFF00
+# define MAP_COLOR_RYCT		0x0000FF00
 
 /* ************************************************************************** */
-/*                                                                            */
 /*                               keycodes Linux                               */
-/*                                                                            */
 /* ************************************************************************** */
 # define KEY_ESC 65307
 # define EV_KEYDOWN 2
@@ -51,11 +56,8 @@
 # define KEY_AR_T 65362
 # define KEY_AR_B 65364
 /* ************************************************************************** */
-/*                                                                            */
 /*                               structures                                   */
-/*                                                                            */
 /* ************************************************************************** */
-
 typedef struct s_mlx
 {
 	void	*mlx;

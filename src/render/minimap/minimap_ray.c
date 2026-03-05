@@ -32,6 +32,6 @@ void	draw_minimap_ray(t_data *d)
 	l.y0 = MINIMAP_Y + d->map.player_y * MINIMAP_TILE;
 	l.x1 = MINIMAP_X + x * MINIMAP_TILE;
 	l.y1 = MINIMAP_Y + y * MINIMAP_TILE;
-	l.color = 0x0000FF00;
+	l.color = MAP_COLOR_RYCT;
 	draw_line(d, l);
 }
