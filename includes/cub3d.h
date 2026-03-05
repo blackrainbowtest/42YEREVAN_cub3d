@@ -107,18 +107,16 @@ typedef struct s_data
 /* ************************************************************************** */
 /*                              render.c (test file)                          */
 /* ************************************************************************** */
-void	render_test(t_data *d);
-
+void		render_test(t_data *d);
 /* ************************************************************************** */
 /*                                                                            */
 /*                               cub3d API                                    */
 /*                                                                            */
 /* ************************************************************************** */
-
-int	app_init(t_data *d);
-int	on_keydown(int keycode, void *param);
-int	on_destroy(void *param);
-int	clean_exit(t_data *d, int code);
+int			app_init(t_data *d);
+int			on_keydown(int keycode, void *param);
+int			on_destroy(void *param);
+int			clean_exit(t_data *d, int code);
 /* ************************************************************************** */
 /*                           minimap_utils.c                                  */
 /* ************************************************************************** */
@@ -126,18 +124,22 @@ static void	draw_square(t_data *d, int x, int y, int color);
 /* ************************************************************************** */
 /*                              minimap.c                                     */
 /* ************************************************************************** */
-void	draw_minimap(t_data *d);
-void	draw_map_tiles(t_data *d);
-void	draw_player_minimap(t_data *d);
-void	draw_player_direction(t_data *d);
-void	draw_line(t_data *d, t_line l);
+void		draw_minimap(t_data *d);
+void		draw_map_tiles(t_data *d);
+void		draw_player_minimap(t_data *d);
+void		draw_player_direction(t_data *d);
+void		draw_line(t_data *d, t_line l);
+/* ************************************************************************** */
+/*                              minimap_ray.c                                 */
+/* ************************************************************************** */
+void		draw_minimap_ray(t_data *d);
 /* ************************************************************************** */
 /*                              map_query.c                                   */
 /* ************************************************************************** */
-int	is_wall(t_map *m, double x, double y);
+int			is_wall(t_map *m, double x, double y);
 /* ************************************************************************** */
 /*                              map_stub .c                                   */
 /* ************************************************************************** */
-int	map_load_stub(t_map *map);
+int			map_load_stub(t_map *map);
 
 #endif	//CUB3D_H
