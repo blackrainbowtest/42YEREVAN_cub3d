@@ -79,6 +79,15 @@ typedef struct s_map
 	double	dir_y;
 }	t_map;
 
+typedef struct s_line
+{
+	int	x0;
+	int	y0;
+	int	x1;
+	int	y1;
+	int	color;
+}	t_line;
+
 typedef struct s_data
 {
 	t_mlx	mlx;
@@ -88,6 +97,9 @@ typedef struct s_data
 	int		exit_code;
 }	t_data;
 
+/* ************************************************************************** */
+/*                              render.c (test file)                          */
+/* ************************************************************************** */
 void	render_test(t_data *d);
 
 /* ************************************************************************** */
@@ -101,5 +113,18 @@ int	on_keydown(int keycode, void *param);
 int	on_destroy(void *param);
 int	clean_exit(t_data *d, int code);
 int	map_load_stub(t_map *map);
+
+/* ************************************************************************** */
+/*                           minimap_utils.c                                  */
+/* ************************************************************************** */
+static void	draw_square(t_data *d, int x, int y, int color);
+/* ************************************************************************** */
+/*                              minimap.c                                     */
+/* ************************************************************************** */
+void	draw_minimap(t_data *d);
+void	draw_map_tiles(t_data *d);
+void	draw_player_minimap(t_data *d);
+void	draw_player_direction(t_data *d);
+void	draw_line(t_data *d, t_line l);
 
 #endif	//CUB3D_H
