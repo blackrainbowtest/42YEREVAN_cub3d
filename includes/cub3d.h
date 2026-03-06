@@ -34,8 +34,8 @@
 # define MINIMAP_PLAYER_SIZE	4
 # define MINIMAP_X				10
 # define MINIMAP_Y				10
-# define MINIMAP_FOV 90.0
-# define MINIMAP_RAYS 30
+# define MINIMAP_FOV 			90.0
+# define MINIMAP_RAYS 			30
 /* ************************************************************************** */
 /*                               map types                                    */
 /* ************************************************************************** */
