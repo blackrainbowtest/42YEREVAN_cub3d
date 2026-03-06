@@ -129,6 +129,10 @@ int			on_keydown(int keycode, void *param);
 int			on_destroy(void *param);
 int			clean_exit(t_data *d, int code);
 /* ************************************************************************** */
+/*                       minimap_player_pos.c                                 */
+/* ************************************************************************** */
+void	get_player_minimap_pos(t_data *d, int *x, int *y);
+/* ************************************************************************** */
 /*                           minimap_utils.c                                  */
 /* ************************************************************************** */
 void		draw_square(t_data *d, int x, int y, int color);
