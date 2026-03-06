@@ -71,6 +71,8 @@ void	draw_player_direction(t_data *d)
 	draw_line(d, line);
 }
 
+/* TODO: move to new file maybe something like draw_player_square.c (or other name maybe
+         I will draw player as circle) */
 void	draw_line(t_data *d, t_line l)
 {
 	int		i;
@@ -95,4 +97,9 @@ void	draw_line(t_data *d, t_line l)
 		y += y_inc;
 		i++;
 	}
+}
+/* TODO: move to new file maybe something like draw_fov.c */
+void draw_minimap_fov(t_data *d, double fov_deg, int rays)
+{
+
 }
