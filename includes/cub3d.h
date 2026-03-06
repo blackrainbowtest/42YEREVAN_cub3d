@@ -22,41 +22,46 @@
 /*                               main defines                                 */
 /*                                                                            */
 /* ************************************************************************** */
-# define MLX_ERROR		1
-# define WINDOW_WIDTH	800
-# define WINDOW_HEIGHT	800
-# define MINIMAP_TILE	8
-# define MINIMAP_X		10
-# define MINIMAP_Y		10
-# define RAY_STEP		0.02
-# define RAY_MAX_DIST	20.0
+# define MLX_ERROR				1
+# define WINDOW_WIDTH			800
+# define WINDOW_HEIGHT			800
+# define RAY_STEP				0.02
+# define RAY_MAX_DIST			20.0
 /* ************************************************************************** */
-/*                               map types                               */
+/*                            minimap variables                               */
 /* ************************************************************************** */
-# define ICN_WALL		'1'
-# define ICN_GROUND		'0'
-# define ICN_PLAYER		'N'
-
-# define MAP_COLOR_WALL		0x00FFFFFF
-# define MAP_COLOR_ELSE		0x00333333
-# define MAP_COLOR_PLYR		0x00FF0000
-# define MAP_COLOR_PLDR		0x00FFFF00
-# define MAP_COLOR_RYCT		0x0000FF00
-
+# define MINIMAP_TILE			8
+# define MINIMAP_PLAYER_SIZE	4
+# define MINIMAP_X				10
+# define MINIMAP_Y				10
+/* ************************************************************************** */
+/*                               map types                                    */
+/* ************************************************************************** */
+# define ICN_WALL				'1'
+# define ICN_GROUND				'0'
+# define ICN_PLAYER				'N'
+/* ************************************************************************** */
+/*                               map colors                                   */
+/* ************************************************************************** */
+# define MAP_COLOR_WALL			0x00FFFFFF
+# define MAP_COLOR_ELSE			0x00333333
+# define MAP_COLOR_PLYR			0x00FF0000
+# define MAP_COLOR_PLDR			0x00FFFF00
+# define MAP_COLOR_RYCT			0x0000FF00
 /* ************************************************************************** */
 /*                               keycodes Linux                               */
 /* ************************************************************************** */
-# define KEY_ESC 65307
-# define EV_KEYDOWN 2
-# define EV_DESTROY 17
-# define KEY_A 97
-# define KEY_D 100
-# define KEY_W 119
-# define KEY_S 115
-# define KEY_AR_L 65361
-# define KEY_AR_R 65363
-# define KEY_AR_T 65362
-# define KEY_AR_B 65364
+# define KEY_ESC				65307
+# define EV_KEYDOWN				2
+# define EV_DESTROY				17
+# define KEY_A					97
+# define KEY_D					100
+# define KEY_W					119
+# define KEY_S					115
+# define KEY_AR_L				65361
+# define KEY_AR_R				65363
+# define KEY_AR_T				65362
+# define KEY_AR_B				65364
 /* ************************************************************************** */
 /*                               structures                                   */
 /* ************************************************************************** */
