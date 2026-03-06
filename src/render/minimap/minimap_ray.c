@@ -28,8 +28,8 @@ void	draw_minimap_ray(t_data *d)
 		y += d->map.dir_y * RAY_STEP;
 		dist += RAY_STEP;
 	}
-	l.x0 = MINIMAP_X + d->map.player_x * MINIMAP_TILE;
-	l.y0 = MINIMAP_Y + d->map.player_y * MINIMAP_TILE;
+	l.x0 = MINIMAP_X + d->map.player_x * MINIMAP_TILE + MINIMAP_TILE / 2;
+	l.y0 = MINIMAP_Y + d->map.player_y * MINIMAP_TILE + MINIMAP_TILE / 2;
 	l.x1 = MINIMAP_X + x * MINIMAP_TILE;
 	l.y1 = MINIMAP_Y + y * MINIMAP_TILE;
 	l.color = MAP_COLOR_RYCT;

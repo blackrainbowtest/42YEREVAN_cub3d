@@ -50,9 +50,9 @@ void	draw_player_minimap(t_data *d)
 	int	px;
 	int	py;
 
-	px = MINIMAP_X + d->map.player_x * MINIMAP_TILE;
-	py = MINIMAP_Y + d->map.player_y * MINIMAP_TILE;
-	draw_square(d, px - 2, py - 2, MAP_COLOR_PLYR);
+	px = MINIMAP_X + d->map.player_x * MINIMAP_TILE  + MINIMAP_TILE / 2;
+	py = MINIMAP_Y + d->map.player_y * MINIMAP_TILE  + MINIMAP_TILE / 2;
+	draw_square(d, px, py, MAP_COLOR_PLYR);
 }
 
 void	draw_player_direction(t_data *d)
@@ -63,8 +63,8 @@ void	draw_player_direction(t_data *d)
 	int		y0;
 
 	length = MINIMAP_TILE * 2;
-	x0 = MINIMAP_X + d->map.player_x * MINIMAP_TILE;
-	y0 = MINIMAP_Y + d->map.player_y * MINIMAP_TILE;
+	x0 = MINIMAP_X + d->map.player_x * MINIMAP_TILE  + MINIMAP_TILE / 2;
+	y0 = MINIMAP_Y + d->map.player_y * MINIMAP_TILE  + MINIMAP_TILE / 2;
 
 	line.x0 = x0;
 	line.y0 = y0;
