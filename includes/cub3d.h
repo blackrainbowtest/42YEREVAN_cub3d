@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 16:14:38 by aramarak          #+#    #+#             */
-/*   Updated: 2026/03/05 22:00:36 by root             ###   ########.fr       */
+/*   Updated: 2026/03/07 15:08:34 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@
 /* ************************************************************************** */
 /*                            minimap variables                               */
 /* ************************************************************************** */
-# define MINIMAP_TILE			8
-# define MINIMAP_PLAYER_SIZE	4
+# define MINIMAP_TILE			64
+# define MINIMAP_PLAYER_SIZE	32
 # define MINIMAP_X				10
 # define MINIMAP_Y				10
 # define MINIMAP_FOV 			90.0
@@ -47,6 +47,7 @@
 /* ************************************************************************** */
 # define MAP_COLOR_WALL			0x00FFFFFF
 # define MAP_COLOR_ELSE			0x00333333
+# define MAP_COLOR_GRID			0x00555555
 # define MAP_COLOR_PLYR			0x00FF0000
 # define MAP_COLOR_PLDR			0x00FFFF00
 # define MAP_COLOR_RYCT			0x0000FF00
@@ -138,6 +139,8 @@ void	get_player_minimap_pos(t_data *d, int *x, int *y);
 /*                           minimap_utils.c                                  */
 /* ************************************************************************** */
 void		draw_square(t_data *d, int x, int y, int color);
+void		draw_tile_with_border(t_data *d, int x, int y, int fill_color,
+				int border_color);
 /* ************************************************************************** */
 /*                              minimap.c                                     */
 /* ************************************************************************** */

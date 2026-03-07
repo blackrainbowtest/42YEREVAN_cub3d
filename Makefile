@@ -12,6 +12,7 @@ SRC = \
 	$(SRC_DIR)/map/map_query.c \
 	$(SRC_DIR)/render/render.c \
 	$(SRC_DIR)/render/minimap/minimap.c \
+	$(SRC_DIR)/render/minimap/minimap_player_pos.c \
 	$(SRC_DIR)/render/minimap/minimap_utils.c \
 	$(SRC_DIR)/render/minimap/minimap_ray.c \
 	$(SRC_DIR)/utils/error.c \

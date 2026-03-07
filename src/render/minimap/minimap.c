@@ -12,6 +12,24 @@
 
 #include "cub3d.h"
 
+static void	draw_player_marker(t_data *d, int x, int y)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < MINIMAP_PLAYER_SIZE)
+	{
+		j = 0;
+		while (j < MINIMAP_PLAYER_SIZE)
+		{
+			ft_put_pixel(&d->img, x + j, y + i, MAP_COLOR_PLYR);
+			j++;
+		}
+		i++;
+	}
+}
+
 void	draw_minimap(t_data *d)
 {
 	draw_map_tiles(d);
@@ -36,9 +54,11 @@ void	draw_map_tiles(t_data *d)
 			screen_x = MINIMAP_X + x * MINIMAP_TILE;
 			screen_y = MINIMAP_Y + y * MINIMAP_TILE;
 			if (d->map.grid[y][x] == '1')
-				draw_square(d, screen_x, screen_y, MAP_COLOR_WALL);
+				draw_tile_with_border(d, screen_x, screen_y,
+					MAP_COLOR_WALL, MAP_COLOR_GRID);
 			else
-				draw_square(d, screen_x, screen_y, MAP_COLOR_ELSE);
+				draw_tile_with_border(d, screen_x, screen_y,
+					MAP_COLOR_ELSE, MAP_COLOR_GRID);
 			x++;
 		}
 		y++;
@@ -51,7 +71,9 @@ void	draw_player_minimap(t_data *d)
 	int	py;
 
 	get_player_minimap_pos(d, &px, &py);
-	draw_square(d, px, py, MAP_COLOR_PLYR);
+	px -= MINIMAP_PLAYER_SIZE / 2;
+	py -= MINIMAP_PLAYER_SIZE / 2;
+	draw_player_marker(d, px, py);
 }
 
 void	draw_player_direction(t_data *d)
@@ -99,7 +121,9 @@ void	draw_line(t_data *d, t_line l)
 	}
 }
 /* TODO: move to new file maybe something like draw_fov.c */
-void draw_minimap_fov(t_data *d, double fov_deg, int rays)
+void	draw_minimap_fov(t_data *d, double fov_deg, int rays)
 {
-
+	(void)d;
+	(void)fov_deg;
+	(void)rays;
 }
