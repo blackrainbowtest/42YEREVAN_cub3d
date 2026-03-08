@@ -35,7 +35,7 @@ void	draw_minimap(t_data *d)
 	draw_map_tiles(d);
 	draw_player_minimap(d);
 	draw_player_direction(d);
-	draw_minimap_ray(d);
+	draw_minimap_rays(d);
 }
 
 void	draw_map_tiles(t_data *d)

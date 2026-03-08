@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 19:33:57 by aramarak          #+#    #+#             */
-/*   Updated: 2026/03/05 21:56:01 by root             ###   ########.fr       */
+/*   Updated: 2026/03/08 16:59:18 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int	render_frame(void *param)
 	t_data	*d;
 
 	d = (t_data *)param;
+	player_update(d);
 	render_test(d);
 	return (0);
 }

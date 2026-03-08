@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 16:14:38 by aramarak          #+#    #+#             */
-/*   Updated: 2026/03/07 15:08:34 by root             ###   ########.fr       */
+/*   Updated: 2026/03/08 17:07:48 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../minilibx-linux/mlx.h"
 # include <stdlib.h>
+# include <math.h>
 # include <stdio.h>
 # include <unistd.h>
 /* ************************************************************************** */
@@ -27,6 +28,10 @@
 # define WINDOW_HEIGHT			800
 # define RAY_STEP				0.02
 # define RAY_MAX_DIST			20.0
+# define PI						3.14159265358979323846
+# define DEG_TO_RAD				0.017453292519943295
+# define MOVE_SPEED				0.02
+# define ROT_SPEED				0.04
 /* ************************************************************************** */
 /*                            minimap variables                               */
 /* ************************************************************************** */
@@ -35,7 +40,7 @@
 # define MINIMAP_X				10
 # define MINIMAP_Y				10
 # define MINIMAP_FOV 			90.0
-# define MINIMAP_RAYS 			30
+# define MINIMAP_RAYS 			50
 /* ************************************************************************** */
 /*                               map types                                    */
 /* ************************************************************************** */
@@ -56,6 +61,7 @@
 /* ************************************************************************** */
 # define KEY_ESC				65307
 # define EV_KEYDOWN				2
+# define EV_KEYUP				3
 # define EV_DESTROY				17
 # define KEY_A					97
 # define KEY_D					100
@@ -68,6 +74,14 @@
 /* ************************************************************************** */
 /*                               structures                                   */
 /* ************************************************************************** */
+typedef struct s_move
+{
+	int		forward;
+	int		backward;
+	int		turn_left;
+	int		turn_right;
+}	t_move;
+
 typedef struct s_mlx
 {
 	void	*mlx;
@@ -114,6 +128,7 @@ typedef struct s_data
 	t_map	map;
 
 	int		exit_code;
+	t_move	move;
 }	t_data;
 
 /* ************************************************************************** */
@@ -129,12 +144,17 @@ int			render_frame(void *param);
 /* ************************************************************************** */
 int			app_init(t_data *d);
 int			on_keydown(int keycode, void *param);
+int			on_keyup(int keycode, void *param);
 int			on_destroy(void *param);
 int			clean_exit(t_data *d, int code);
+void		player_update(t_data *d);
+void		player_move_forward(t_data *d);
+void		player_move_backward(t_data *d);
+void		player_rotate(t_data *d, double angle);
 /* ************************************************************************** */
 /*                       minimap_player_pos.c                                 */
 /* ************************************************************************** */
-void	get_player_minimap_pos(t_data *d, int *x, int *y);
+void		get_player_minimap_pos(t_data *d, int *x, int *y);
 /* ************************************************************************** */
 /*                           minimap_utils.c                                  */
 /* ************************************************************************** */
@@ -152,7 +172,7 @@ void		draw_line(t_data *d, t_line l);
 /* ************************************************************************** */
 /*                              minimap_ray.c                                 */
 /* ************************************************************************** */
-void		draw_minimap_ray(t_data *d);
+void		draw_minimap_rays(t_data *d);
 /* ************************************************************************** */
 /*                              map_query.c                                   */
 /* ************************************************************************** */

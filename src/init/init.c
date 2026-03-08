@@ -15,6 +15,10 @@
 int	app_init(t_data *d)
 {
 	d->exit_code = 0;
+	d->move.forward = 0;
+	d->move.backward = 0;
+	d->move.turn_left = 0;
+	d->move.turn_right = 0;
 	d->mlx.w = WINDOW_WIDTH;
 	d->mlx.h = WINDOW_HEIGHT;
 	d->mlx.mlx = mlx_init();

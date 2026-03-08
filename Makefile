@@ -10,6 +10,7 @@ SRC = \
 	$(SRC_DIR)/init/init.c \
 	$(SRC_DIR)/map/map_stub.c \
 	$(SRC_DIR)/map/map_query.c \
+	$(SRC_DIR)/player/player_move.c \
 	$(SRC_DIR)/render/render.c \
 	$(SRC_DIR)/render/minimap/minimap.c \
 	$(SRC_DIR)/render/minimap/minimap_player_pos.c \
@@ -29,7 +30,7 @@ MLX_LIB = $(MLX_DIR)/libmlx.a
 LIBFT_DIR = libraries/libft
 LIBFT_LIB = $(LIBFT_DIR)/libft.a
 
-LDFLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11
+LDFLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
 
 all: $(MLX_LIB) $(LIBFT_LIB) $(NAME)
 
