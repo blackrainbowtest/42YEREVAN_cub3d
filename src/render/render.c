@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 19:33:57 by aramarak          #+#    #+#             */
-/*   Updated: 2026/03/08 16:59:18 by root             ###   ########.fr       */
+/*   Updated: 2026/03/08 18:46:31 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_put_pixel(t_img *img, int x, int y, int color)
 {
 	char	*dst;
 
+	if (x < 0 || y < 0 || x >= WINDOW_WIDTH || y >= WINDOW_HEIGHT)
+		return ;
 	dst = img->addr + (y * img->line_len + x * (img->bpp / 8));
 	*(unsigned int *)dst = (unsigned int)color;
 }

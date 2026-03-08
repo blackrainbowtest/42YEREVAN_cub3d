@@ -14,6 +14,6 @@
 
 void	get_player_minimap_pos(t_data *d, int *x, int *y)
 {
-	*x = MINIMAP_X + d->map.player_x * MINIMAP_TILE + MINIMAP_TILE / 2;
-	*y = MINIMAP_Y + d->map.player_y * MINIMAP_TILE + MINIMAP_TILE / 2;
+	*x = MINIMAP_X + d->map.player_x * MINIMAP_TILE;
+	*y = MINIMAP_Y + d->map.player_y * MINIMAP_TILE;
 }

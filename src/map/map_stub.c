@@ -45,8 +45,8 @@ int	map_load_stub(t_map *map)
 {
 	static char	*grid[] = {
 		"111111",
-		"100001",
-		"100E01",
+		"101001",
+		"101E01",
 		"100001",
 		"111111",
 		NULL

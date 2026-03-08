@@ -107,6 +107,11 @@ void	draw_line(t_data *d, t_line l)
 	steps = abs(l.x1 - l.x0);
 	if (abs(l.y1 - l.y0) > steps)
 		steps = abs(l.y1 - l.y0);
+	if (steps == 0)
+	{
+		ft_put_pixel(&d->img, l.x0, l.y0, l.color);
+		return ;
+	}
 	x_inc = (float)(l.x1 - l.x0) / steps;
 	y_inc = (float)(l.y1 - l.y0) / steps;
 	x = l.x0;
