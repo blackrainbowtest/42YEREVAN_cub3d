@@ -16,6 +16,7 @@ parameters and internal logic.
 | API name | Description |
 |--------|--------|
 | [hooks](hooks/README.md) | Hooks enable interaction between the player and the program. They determine the program's behavior in various situations. |
+| [app](app/app_init.md) | Initializes the core application context and prepares all runtime systems required by the engine. |
 
 ---
 
