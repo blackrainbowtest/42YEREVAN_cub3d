@@ -22,7 +22,10 @@ MiniLibX is a lightweight graphics library for simple window and image manipulat
 - [MiniLibX Official Documentation](https://harm-smits.github.io/42docs/libs/minilibx)
 
 ---
+## Documentation
+- [API Reference](API/README.md)
 
+---
 ### Expandable Sections
 - See [Flags Used](flags/flags.md) for linker/compiler flags explanation.
 - See [Functions Used](functions/functions.md) for functions used in main.c and their purpose.
