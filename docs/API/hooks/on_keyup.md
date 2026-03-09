@@ -1,3 +1,6 @@
+<a name="top"></a>
+# [⬅️ Back to HOOK Documentation](./README.md)
+
 # on_keyup
 
 Declaration:
@@ -47,3 +50,6 @@ release W -> forward still = 1
 player never stops moving
 
 The key release event ensures correct input state management.
+
+---
+[⬆️ Back to Top](#top)

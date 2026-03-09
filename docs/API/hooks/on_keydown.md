@@ -1,3 +1,6 @@
+<a name="top"></a>
+# [⬅️ Back to HOOK Documentation](./README.md)
+
 # on_keydown
 
 Declaration:
@@ -68,3 +71,6 @@ d->move.turn_left
 d->move.turn_right
 ```
 These flags are processed later in the frame update loop.
+
+---
+[⬆️ Back to Top](#top)

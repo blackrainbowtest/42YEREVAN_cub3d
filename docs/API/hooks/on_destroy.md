@@ -1,3 +1,6 @@
+<a name="top"></a>
+# [⬅️ Back to HOOK Documentation](./README.md)
+
 # on_destroy
 
 Declaration:
@@ -34,3 +37,6 @@ Closing the window should perform the same cleanup as pressing ESC.
 
 Centralizing shutdown logic inside clean_exit() prevents duplicated code
 and ensures all resources are released correctly.
+
+---
+[⬆️ Back to Top](#top)
