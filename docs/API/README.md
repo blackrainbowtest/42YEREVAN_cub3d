@@ -17,6 +17,7 @@ parameters and internal logic.
 |--------|--------|
 | [hooks](hooks/README.md) | Hooks enable interaction between the player and the program. They determine the program's behavior in various situations. |
 | [app](app/app_init.md) | Initializes the core application context and prepares all runtime systems required by the engine. |
+| [map](map/README.md) | This section describes input and window event hooks used by the engine. |
 
 ---
 

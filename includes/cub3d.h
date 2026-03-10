@@ -57,6 +57,15 @@
 # define MAP_COLOR_PLDR			0x00FFFF00
 # define MAP_COLOR_RYCT			0x0000FF00
 /* ************************************************************************** */
+/*                             scene colors                                   */
+/* ************************************************************************** */
+# define CEILING_COLOR			0x0087CEEB
+# define FLOOR_COLOR			0x00444444
+# define WALL_NORTH_COLOR		0x00FF4444
+# define WALL_SOUTH_COLOR		0x0044FF44
+# define WALL_EAST_COLOR		0x004444FF
+# define WALL_WEST_COLOR		0x00FFFF44
+/* ************************************************************************** */
 /*                               keycodes Linux                               */
 /* ************************************************************************** */
 # define KEY_ESC				65307
@@ -150,9 +159,23 @@ typedef struct s_data
 }	t_data;
 
 /* ************************************************************************** */
-/*                              render.c (test file)                          */
+/*     src/engine/raycast     raycast_dda .c                                  */
 /* ************************************************************************** */
-void		render_test(t_data *d);
+void		raycast_dda(t_data *d, double dir_x, double dir_y, t_dda *r);
+/* ************************************************************************** */
+/*     src/engine/raycast     raycast_cast .c                                 */
+/* ************************************************************************** */
+void		cast_dda(t_data *d, t_dda *r);
+/* ************************************************************************** */
+/*     src/engine/raycast     raycast_init .c                                 */
+/* ************************************************************************** */
+void		init_dda(t_data *d, double dir_x, double dir_y, t_dda *r);
+
+
+
+/* ************************************************************************** */
+/*                              render.c                                      */
+/* ************************************************************************** */
 void		ft_put_pixel(t_img *img, int x, int y, int color);
 int			render_frame(void *param);
 /* ************************************************************************** */
@@ -199,5 +222,8 @@ int			is_wall(t_map *m, double x, double y);
 /*                              map_stub .c                                   */
 /* ************************************************************************** */
 int			map_load_stub(t_map *map);
+
+
+
 
 #endif	//CUB3D_H

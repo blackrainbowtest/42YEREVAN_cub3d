@@ -35,9 +35,9 @@
 - ⬜ TODO: validate map is closed (flood fill)
 
 ## 🟠 STAGE 3 — DATA INITIALIZATION
-- ⬜ TODO: initialize player position
-- ⬜ TODO: initialize player direction vector
-- ⬜ TODO: initialize camera plane vector
+- ✅ TODO: initialize player position
+- ✅ TODO: initialize player direction vector
+- ✅ TODO: initialize camera plane vector
 - ⬜ TODO: load textures (mlx_xpm_file_to_image)
 - ⬜ TODO: create image buffer
 - ⬜ TODO: get image data address
@@ -56,13 +56,13 @@
 - ⬜ TODO: draw vertical stripe
 
 ## 🟣 STAGE 5 — PLAYER MOVEMENT
-- ⬜ TODO: handle W key (move forward)
-- ⬜ TODO: handle S key (move backward)
-- ⬜ TODO: handle A key (strafe left)
-- ⬜ TODO: handle D key (strafe right)
-- ⬜ TODO: handle LEFT arrow (rotate left)
-- ⬜ TODO: handle RIGHT arrow (rotate right)
-- ⬜ TODO: implement wall collision
+- ✅ TODO: handle W key (move forward)
+- ✅ TODO: handle S key (move backward)
+- ✅ TODO: handle A key (strafe left)
+- ✅ TODO: handle D key (strafe right)
+- ✅ TODO: handle LEFT arrow (rotate left)
+- ✅ TODO: handle RIGHT arrow (rotate right)
+- ✅ TODO: implement wall collision
 
 ## 🔴 STAGE 6 — CLEAN ARCHITECTURE
 - ⬜ TODO: separate modules (parsing, render, events, utils)
