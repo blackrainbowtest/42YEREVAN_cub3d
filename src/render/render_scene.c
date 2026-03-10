@@ -17,7 +17,7 @@ void	render_scene(t_data *d)
 	int	x;
 
 	x = 0;
-	while (x < WIN_WIDTH)
+	while (x < WINDOW_WIDTH)
 	{
 		render_wall_column(d, x);
 		x++;

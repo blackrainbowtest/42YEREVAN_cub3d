@@ -6,22 +6,17 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 17:20:00 by root              #+#    #+#             */
-/*   Updated: 2026/03/08 18:48:12 by root             ###   ########.fr       */
+/*   Updated: 2026/03/10 21:12:26 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static double	player_collision_radius(void)
-{
-	return (((double)MINIMAP_PLAYER_SIZE / 2.0) / MINIMAP_TILE);
-}
-
 static int	hits_wall_radius(t_map *m, double x, double y)
 {
 	double	r;
 
-	r = player_collision_radius();
+	r = ((double)MINIMAP_PLAYER_SIZE / 2.0) / MINIMAP_TILE;
 	if (is_wall(m, x - r, y - r))
 		return (1);
 	if (is_wall(m, x + r, y - r))

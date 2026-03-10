@@ -15,14 +15,17 @@
 void	render_wall_column(t_data *d, int x)
 {
 	double	camera_x;
+	double	plane_x;
+	double	plane_y;
 	double	ray_dir_x;
 	double	ray_dir_y;
 	t_dda	r;
 
-	camera_x = 2.0 * x / (double)WIN_WIDTH - 1.0;
-
-	ray_dir_x = d->map.dir_x + d->map.plane_x * camera_x;
-	ray_dir_y = d->map.dir_y + d->map.plane_y * camera_x;
+	camera_x = 2.0 * x / (double)WINDOW_WIDTH - 1.0;
+	plane_x = -d->map.dir_y * 0.66;
+	plane_y = d->map.dir_x * 0.66;
+	ray_dir_x = d->map.dir_x + plane_x * camera_x;
+	ray_dir_y = d->map.dir_y + plane_y * camera_x;
 
 	raycast_dda(d, ray_dir_x, ray_dir_y, &r);
 
@@ -38,13 +41,13 @@ void	draw_wall_column(t_data *d, int x, t_dda *r)
 
 	if (r->dist < 0.0001)
 		r->dist = 0.0001;
-	line_height = (int)(WIN_HEIGHT / r->dist);
-	draw_start = -line_height / 2 + WIN_HEIGHT / 2;
-	draw_end = line_height / 2 + WIN_HEIGHT / 2;
+	line_height = (int)(WINDOW_HEIGHT / r->dist);
+	draw_start = -line_height / 2 + WINDOW_HEIGHT / 2;
+	draw_end = line_height / 2 + WINDOW_HEIGHT / 2;
 	if (draw_start < 0)
 		draw_start = 0;
-	if (draw_end > WIN_HEIGHT)
-		draw_end = WIN_HEIGHT - 1;
+	if (draw_end > WINDOW_HEIGHT)
+		draw_end = WINDOW_HEIGHT - 1;
 	draw_column_pixels(d, x, draw_start, draw_end, r);
 }
 
@@ -56,27 +59,31 @@ void	draw_column_pixels(t_data *d, int x, int start, int end, t_dda *r)
 	y = 0;
 	while (y < start)
 	{
-		put_pixel(d, x, y, CEILING_COLOR);
+		ft_put_pixel(&d->img, x, y, CEILING_COLOR);
 		y++;
 	}
 	if (r->side == 0)
+	{
 		if (r->dir_x > 0)
 			color = WALL_WEST_COLOR;
 		else
 			color = WALL_EAST_COLOR;
+	}
 	else
+	{
 		if (r->dir_y > 0)
 			color = WALL_NORTH_COLOR;
 		else
 			color = WALL_SOUTH_COLOR;
+	}
 	while (y <= end)
 	{
-		put_pixel(d, x, y, color);
+		ft_put_pixel(&d->img, x, y, color);
 		y++;
 	}
-	while (y < WIN_HEIGHT)
+	while (y < WINDOW_HEIGHT)
 	{
-		put_pixel(d, x, y, FLOOR_COLOR);
+		ft_put_pixel(&d->img, x, y, FLOOR_COLOR);
 		y++;
 	}
 }
