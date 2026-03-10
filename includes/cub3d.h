@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 16:14:38 by aramarak          #+#    #+#             */
-/*   Updated: 2026/03/10 21:18:23 by root             ###   ########.fr       */
+/*   Updated: 2026/03/10 21:43:58 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 # define MLX_ERROR				1
-# define WINDOW_WIDTH			800
-# define WINDOW_HEIGHT			800
+# define WINDOW_WIDTH			1280
+# define WINDOW_HEIGHT			720
 # define RAY_STEP				0.02
 # define RAY_MAX_DIST			20.0
 # define PI						3.14159265358979323846
 # define DEG_TO_RAD				0.017453292519943295
+# define SCENE_FOV				66.0
 # define MOVE_SPEED				0.02
-# define ROT_SPEED				0.04
+# define ROT_SPEED				0.02
 /* ************************************************************************** */
 /*                            minimap variables                               */
 /* ************************************************************************** */
@@ -39,8 +40,8 @@
 # define MINIMAP_PLAYER_SIZE	32
 # define MINIMAP_X				10
 # define MINIMAP_Y				10
-# define MINIMAP_FOV 			90.0
-# define MINIMAP_RAYS 			50
+# define MINIMAP_FOV 			66.0
+# define MINIMAP_RAYS 			120
 /* ************************************************************************** */
 /*                               map types                                    */
 /* ************************************************************************** */

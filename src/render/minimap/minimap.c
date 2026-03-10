@@ -119,7 +119,7 @@ void	draw_line(t_data *d, t_line l)
 	i = 0;
 	while (i <= steps)
 	{
-		ft_put_pixel(&d->img, (int)x, (int)y, l.color);
+		ft_put_pixel(&d->img, (int)roundf(x), (int)roundf(y), l.color);
 		x += x_inc;
 		y += y_inc;
 		i++;

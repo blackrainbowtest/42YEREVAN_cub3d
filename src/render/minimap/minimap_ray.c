@@ -62,6 +62,8 @@ static void	draw_minimap_rays_loop(t_data *d)
 		angle += angle_step;
 		i++;
 	}
+	/* Always draw the exact facing ray, even when MINIMAP_RAYS is even. */
+	draw_single_ray(d, d->map.dir_x, d->map.dir_y);
 }
 
 void	draw_minimap_rays(t_data *d)
