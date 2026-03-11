@@ -54,6 +54,34 @@ void	player_move_backward(t_data *d)
 		d->map.player_y = next_y;
 }
 
+void	player_strafe_left(t_data *d)
+{
+	double	next_x;
+	double	next_y;
+
+	next_x = d->map.player_x - d->map.dir_y * MOVE_SPEED;
+	next_y = d->map.player_y + d->map.dir_x * MOVE_SPEED;
+	if (!hits_wall_radius(&d->map, next_x, d->map.player_y))
+		d->map.player_x = next_x;
+	if (!hits_wall_radius(&d->map, d->map.player_x, next_y))
+		d->map.player_y = next_y;
+}
+
+void	player_strafe_right(t_data *d)
+{
+	double	next_x;
+	double	next_y;
+
+	next_x = d->map.player_x + d->map.dir_y * MOVE_SPEED;
+	next_y = d->map.player_y - d->map.dir_x * MOVE_SPEED;
+
+	if (!hits_wall_radius(&d->map, next_x, d->map.player_y))
+		d->map.player_x = next_x;
+
+	if (!hits_wall_radius(&d->map, d->map.player_x, next_y))
+		d->map.player_y = next_y;
+}
+
 void	player_rotate(t_data *d, double angle)
 {
 	double	old_dir_x;
@@ -73,6 +101,10 @@ void	player_update(t_data *d)
 		player_move_forward(d);
 	if (d->move.backward)
 		player_move_backward(d);
+	if (d->move.strafe_left)
+		player_strafe_left(d);
+	if (d->move.strafe_right)
+		player_strafe_right(d);
 	if (d->move.turn_left)
 		player_rotate(d, -ROT_SPEED);
 	if (d->move.turn_right)

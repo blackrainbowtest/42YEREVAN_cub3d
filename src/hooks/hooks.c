@@ -19,13 +19,17 @@ int	on_keydown(int keycode, void *param)
 	d = (t_data *)param;
 	if (keycode == KEY_ESC)
 		return (clean_exit(d, 0));
-	if (keycode == KEY_W || keycode == KEY_AR_T)
+	if (keycode == KEY_W)
 		d->move.forward = 1;
-	if (keycode == KEY_S || keycode == KEY_AR_B)
+	if (keycode == KEY_S)
 		d->move.backward = 1;
-	if (keycode == KEY_A || keycode == KEY_AR_L)
+	if (keycode == KEY_A)
+		d->move.strafe_left = 1;
+	if (keycode == KEY_D)
+		d->move.strafe_right = 1;
+	if (keycode == KEY_AR_L)
 		d->move.turn_left = 1;
-	if (keycode == KEY_D || keycode == KEY_AR_R)
+	if (keycode == KEY_AR_R)
 		d->move.turn_right = 1;
 	return (0);
 }
@@ -35,13 +39,17 @@ int	on_keyup(int keycode, void *param)
 	t_data	*d;
 
 	d = (t_data *)param;
-	if (keycode == KEY_W || keycode == KEY_AR_T)
+	if (keycode == KEY_W)
 		d->move.forward = 0;
-	if (keycode == KEY_S || keycode == KEY_AR_B)
+	if (keycode == KEY_S)
 		d->move.backward = 0;
-	if (keycode == KEY_A || keycode == KEY_AR_L)
+	if (keycode == KEY_A)
+		d->move.strafe_left = 0;
+	if (keycode == KEY_D)
+		d->move.strafe_right = 0;
+	if (keycode == KEY_AR_L)
 		d->move.turn_left = 0;
-	if (keycode == KEY_D || keycode == KEY_AR_R)
+	if (keycode == KEY_AR_R)
 		d->move.turn_right = 0;
 	return (0);
 }
