@@ -178,7 +178,8 @@ enum e_tex
 	TEX_NO = 0,
 	TEX_SO = 1,
 	TEX_WE = 2,
-	TEX_EA = 3
+	TEX_EA = 3,
+	TEX_COUNT = 4
 };
 
 typedef struct s_data
@@ -186,7 +187,7 @@ typedef struct s_data
 	t_mlx	mlx;
 	t_img	img;
 	t_map	map;
-	t_tex	tex[4];
+	t_tex	tex[TEX_COUNT];
 
 	int		exit_code;
 	t_move	move;
