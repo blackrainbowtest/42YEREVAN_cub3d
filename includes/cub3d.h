@@ -88,6 +88,8 @@ typedef struct s_move
 {
 	int		forward;
 	int		backward;
+	int		strafe_left;
+	int		strafe_right;
 	int		turn_left;
 	int		turn_right;
 }	t_move;
@@ -122,10 +124,24 @@ typedef struct s_img
 {
 	void	*img;
 	char	*addr;
+
 	int		bpp;
 	int		line_len;
 	int		endian;
 }	t_img;
+
+typedef struct s_tex
+{
+	void	*img;
+	char	*addr;
+
+	int		width;
+	int		height;
+
+	int		bpp;
+	int		line_len;
+	int		endian;
+}	t_tex;
 
 typedef struct s_map
 {
@@ -138,6 +154,14 @@ typedef struct s_map
 
 	double	dir_x;
 	double	dir_y;
+
+	int		floor_color;
+	int		ceil_color;
+
+	char	*tex_path_no;
+	char	*tex_path_so;
+	char	*tex_path_we;
+	char	*tex_path_ea;
 }	t_map;
 
 typedef struct s_line
@@ -149,11 +173,20 @@ typedef struct s_line
 	int	color;
 }	t_line;
 
+enum e_tex
+{
+	TEX_NO = 0,
+	TEX_SO = 1,
+	TEX_WE = 2,
+	TEX_EA = 3
+};
+
 typedef struct s_data
 {
 	t_mlx	mlx;
 	t_img	img;
 	t_map	map;
+	t_tex	tex[4];
 
 	int		exit_code;
 	t_move	move;
@@ -207,6 +240,8 @@ int			map_load_stub(t_map *map);
 /* ************************************************************************** */
 void		player_move_forward(t_data *d);
 void		player_move_backward(t_data *d);
+void		player_strafe_left(t_data *d);
+void		player_strafe_right(t_data *d);
 void		player_rotate(t_data *d, double angle);
 void		player_update(t_data *d);
 
