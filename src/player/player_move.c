@@ -6,7 +6,7 @@
 /*   By: aramarak <aramarak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 17:20:00 by aramarak          #+#    #+#             */
-/*   Updated: 2026/03/12 20:34:43 by aramarak         ###   ########.fr       */
+/*   Updated: 2026/03/12 21:04:50 by aramarak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ void	player_strafe_left(t_data *d)
 	double	next_x;
 	double	next_y;
 
-	next_x = d->map.player_x - d->map.dir_y * MOVE_SPEED;
-	next_y = d->map.player_y + d->map.dir_x * MOVE_SPEED;
+	next_x = d->map.player_x + d->map.dir_y * MOVE_SPEED;
+	next_y = d->map.player_y - d->map.dir_x * MOVE_SPEED;
 	if (!hits_wall_radius(&d->map, next_x, d->map.player_y))
 		d->map.player_x = next_x;
 	if (!hits_wall_radius(&d->map, d->map.player_x, next_y))
@@ -72,8 +72,8 @@ void	player_strafe_right(t_data *d)
 	double	next_x;
 	double	next_y;
 
-	next_x = d->map.player_x + d->map.dir_y * MOVE_SPEED;
-	next_y = d->map.player_y - d->map.dir_x * MOVE_SPEED;
+	next_x = d->map.player_x - d->map.dir_y * MOVE_SPEED;
+	next_y = d->map.player_y + d->map.dir_x * MOVE_SPEED;
 	if (!hits_wall_radius(&d->map, next_x, d->map.player_y))
 		d->map.player_x = next_x;
 	if (!hits_wall_radius(&d->map, d->map.player_x, next_y))

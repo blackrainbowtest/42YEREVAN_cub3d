@@ -12,6 +12,47 @@
 
 #include "cub3d.h"
 
+static int	pick_tex_id(t_dda *r)
+{
+	if (r->side == 0)
+	{
+		if (r->dir_x > 0)
+			return (TEX_WE);
+		return (TEX_EA);
+	}
+	if (r->dir_y > 0)
+		return (TEX_NO);
+	return (TEX_SO);
+}
+
+static unsigned int	texel_at(t_tex *t, int x, int y)
+{
+	char	*dst;
+
+	if (x < 0)
+		x = 0;
+	if (y < 0)
+		y = 0;
+	if (x >= t->width)
+		x = t->width - 1;
+	if (y >= t->height)
+		y = t->height - 1;
+	dst = t->addr + (y * t->line_len + x * (t->bpp / 8));
+	return (*(unsigned int *)dst);
+}
+
+static double	compute_wall_x(t_dda *r)
+{
+	double	wall_x;
+
+	if (r->side == 0)
+		wall_x = r->pos_y + r->dist * r->dir_y;
+	else
+		wall_x = r->pos_x + r->dist * r->dir_x;
+	wall_x -= floor(wall_x);
+	return (wall_x);
+}
+
 void	render_wall_column(t_data *d, int x)
 {
 	double	camera_x;
@@ -66,24 +107,45 @@ static int	get_wall_color(t_dda *r)
 
 void	draw_column_pixels(t_data *d, int x, int start, int end, t_dda *r)
 {
-	int	y;
-	int	color;
+	int				y;
+	int				tex_id;
+	t_tex			*t;
+	double			wall_x;
+	int				tex_x;
+	double			step;
+	double			tex_pos;
+	unsigned int	color;
 
 	y = 0;
 	while (y < start)
+		ft_put_pixel(&d->img, x, y++, d->map.ceil_color);
+	tex_id = pick_tex_id(r);
+	t = &d->tex[tex_id];
+	if (!t->img || !t->addr || t->width <= 0 || t->height <= 0)
 	{
-		ft_put_pixel(&d->img, x, y, d->map.ceil_color);
-		y++;
+		int flat = get_wall_color(r);
+		while (y <= end)
+			ft_put_pixel(&d->img, x, y++, flat);
 	}
-	color = get_wall_color(r);
-	while (y <= end)
+	else
 	{
-		ft_put_pixel(&d->img, x, y, color);
-		y++;
+		wall_x = compute_wall_x(r);
+		tex_x = (int)(wall_x * (double)t->width);
+
+		if (r->side == 0 && r->dir_x > 0)
+			tex_x = t->width - tex_x - 1;
+		if (r->side == 1 && r->dir_y < 0)
+			tex_x = t->width - tex_x - 1;
+		step = (double)t->height / (double)(end - start + 1);
+		tex_pos = 0.0;
+		while (y <= end)
+		{
+			int tex_y = (int)tex_pos;
+			color = texel_at(t, tex_x, tex_y);
+			ft_put_pixel(&d->img, x, y++, (int)color);
+			tex_pos += step;
+		}
 	}
 	while (y < WINDOW_HEIGHT)
-	{
-		ft_put_pixel(&d->img, x, y, d->map.floor_color);
-		y++;
-	}
+		ft_put_pixel(&d->img, x, y++, d->map.floor_color);
 }
