@@ -57,6 +57,15 @@ int	map_load_stub(t_map *map)
 	map->grid = grid;
 	map->width = 6;
 	map->height = 5;
+
+	map->floor_color = 0x3A3A3A;
+	map->ceil_color = 0x87CEEB;
+
+	map->tex_path_no = "./textures/north_wall.xpm";
+	map->tex_path_so = "./textures/south_wall.xpm";
+	map->tex_path_we = "./textures/west_wall.xpm";
+	map->tex_path_ea = "./textures/east_wall.xpm";
+
 	y = 0;
 	while (grid[y])
 	{
