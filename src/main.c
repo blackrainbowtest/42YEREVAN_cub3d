@@ -29,6 +29,7 @@ int	main(void)
 		return (ERROR);
 	if (map_load_stub(&d.map) != 0)
 		return (ERROR);
+	camera_init(&d.map);
 	if (load_textures(&d) != 0)
 		return (clean_exit(&d, ERROR));
 	register_hooks(&d);

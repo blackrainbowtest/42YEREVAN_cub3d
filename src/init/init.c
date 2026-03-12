@@ -12,6 +12,15 @@
 
 #include "cub3d.h"
 
+void	camera_init(t_map *map)
+{
+	double plane_len;
+
+	plane_len = tan((SCENE_FOV * DEG_TO_RAD) / 2.0);
+	map->plane_x = -map->dir_y * plane_len;
+	map->plane_y = map->dir_x * plane_len;
+}
+
 int	app_init(t_data *d)
 {
 	d->mlx.w = WINDOW_WIDTH;
@@ -29,5 +38,6 @@ int	app_init(t_data *d)
 			&d->img.line_len, &d->img.endian);
 	if (!d->img.addr)
 		return (MLX_ERROR);
+	camera_init(&d->map);
 	return (0);
 }

@@ -15,19 +15,13 @@
 void	render_wall_column(t_data *d, int x)
 {
 	double	camera_x;
-	double	plane_len;
-	double	plane_x;
-	double	plane_y;
 	double	ray_dir_x;
 	double	ray_dir_y;
 	t_dda	r;
 
 	camera_x = 2.0 * x / (double)WINDOW_WIDTH - 1.0;
-	plane_len = tan((SCENE_FOV * DEG_TO_RAD) / 2.0);
-	plane_x = -d->map.dir_y * plane_len;
-	plane_y = d->map.dir_x * plane_len;
-	ray_dir_x = d->map.dir_x + plane_x * camera_x;
-	ray_dir_y = d->map.dir_y + plane_y * camera_x;
+	ray_dir_x = d->map.dir_x + d->map.plane_x * camera_x;
+	ray_dir_y = d->map.dir_y + d->map.plane_y * camera_x;
 
 	raycast_dda(d, ray_dir_x, ray_dir_y, &r);
 

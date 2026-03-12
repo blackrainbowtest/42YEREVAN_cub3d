@@ -155,6 +155,9 @@ typedef struct s_map
 	double	dir_x;
 	double	dir_y;
 
+	double	plane_x;
+	double	plane_y;
+
 	int		floor_color;
 	int		ceil_color;
 
@@ -225,6 +228,7 @@ int			on_destroy(void *param);
 /*     src/init              init.c                                           */
 /* ************************************************************************** */
 int			app_init(t_data *d);
+void		camera_init(t_map *map);
 
 /* ************************************************************************** */
 /*     src/loader            init.c                                           */
