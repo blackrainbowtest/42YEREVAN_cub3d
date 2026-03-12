@@ -53,6 +53,24 @@ void	draw_wall_column(t_data *d, int x, t_dda *r)
 	draw_column_pixels(d, x, draw_start, draw_end, r);
 }
 
+static int	get_wall_color(t_dda *r)
+{
+	if (r->side == 0)
+	{
+		if (r->dir_x > 0)
+			return (WALL_WEST_COLOR);
+		else
+			return (WALL_EAST_COLOR);
+	}
+	else
+	{
+		if (r->dir_y > 0)
+			return (WALL_NORTH_COLOR);
+		else
+			return (WALL_SOUTH_COLOR);
+	}
+}
+
 void	draw_column_pixels(t_data *d, int x, int start, int end, t_dda *r)
 {
 	int	y;
@@ -61,23 +79,10 @@ void	draw_column_pixels(t_data *d, int x, int start, int end, t_dda *r)
 	y = 0;
 	while (y < start)
 	{
-		ft_put_pixel(&d->img, x, y, CEILING_COLOR);
+		ft_put_pixel(&d->img, x, y, d->map.ceil_color);
 		y++;
 	}
-	if (r->side == 0)
-	{
-		if (r->dir_x > 0)
-			color = WALL_WEST_COLOR;
-		else
-			color = WALL_EAST_COLOR;
-	}
-	else
-	{
-		if (r->dir_y > 0)
-			color = WALL_NORTH_COLOR;
-		else
-			color = WALL_SOUTH_COLOR;
-	}
+	color = get_wall_color(r);
 	while (y <= end)
 	{
 		ft_put_pixel(&d->img, x, y, color);
@@ -85,7 +90,7 @@ void	draw_column_pixels(t_data *d, int x, int start, int end, t_dda *r)
 	}
 	while (y < WINDOW_HEIGHT)
 	{
-		ft_put_pixel(&d->img, x, y, FLOOR_COLOR);
+		ft_put_pixel(&d->img, x, y, d->map.floor_color);
 		y++;
 	}
 }
