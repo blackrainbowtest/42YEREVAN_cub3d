@@ -44,18 +44,18 @@ static void	set_player_dir(t_map *map, char spawn)
 int	map_load_stub(t_map *map)
 {
 	static char	*grid[] = {
-		"111111",
-		"101001",
-		"101E01",
-		"100001",
-		"111111",
+		"111111111",
+		"101000001",
+		"101E00011",
+		"100000011",
+		"111111111",
 		NULL
 	};
 	int		x;
 	int		y;
 
 	map->grid = grid;
-	map->width = 6;
+	map->width = 9;
 	map->height = 5;
 
 	map->floor_color = 0x3A3A3A;
