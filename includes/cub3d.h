@@ -6,7 +6,7 @@
 /*   By: aramarak <aramarak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 16:14:38 by aramarak          #+#    #+#             */
-/*   Updated: 2026/03/12 20:01:11 by aramarak         ###   ########.fr       */
+/*   Updated: 2026/03/12 20:22:07 by aramarak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,11 @@
 /*                             scene colors                                   */
 /* ************************************************************************** */
 # define CEILING_COLOR			0x0087CEEB
-# define FLOOR_COLOR			0x00444444
-# define WALL_NORTH_COLOR		0x00FF4444
-# define WALL_SOUTH_COLOR		0x0044FF44
-# define WALL_EAST_COLOR		0x004444FF
-# define WALL_WEST_COLOR		0x00FFFF44
+# define FLOOR_COLOR			0x00999999
+# define WALL_NORTH_COLOR		0x00FF9999
+# define WALL_SOUTH_COLOR		0x0099FF99
+# define WALL_EAST_COLOR		0x009999FF
+# define WALL_WEST_COLOR		0x00FFFF99
 /* ************************************************************************** */
 /*                               keycodes Linux                               */
 /* ************************************************************************** */
@@ -254,7 +254,14 @@ void		player_move_forward(t_data *d);
 void		player_move_backward(t_data *d);
 void		player_strafe_left(t_data *d);
 void		player_strafe_right(t_data *d);
+
+/* ************************************************************************** */
+/*     src/player            player_rotate.c                                  */
+/* ************************************************************************** */
 void		player_rotate(t_data *d, double angle);
+/* ************************************************************************** */
+/*     src/player            player_update.c                                  */
+/* ************************************************************************** */
 void		player_update(t_data *d);
 
 /* ************************************************************************** */

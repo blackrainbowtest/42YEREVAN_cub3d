@@ -18,12 +18,7 @@ void	render_wall_column(t_data *d, int x)
 	double	ray_dir_x;
 	double	ray_dir_y;
 	t_dda	r;
-	double plane_len;
-	t_map *map = &d->map;
 
-	plane_len = tan((SCENE_FOV * DEG_TO_RAD) / 2.0);
-	map->plane_x = -map->dir_y * plane_len;
-	map->plane_y = map->dir_x * plane_len;
 	camera_x = 2.0 * x / (double)WINDOW_WIDTH - 1.0;
 	ray_dir_x = d->map.dir_x + d->map.plane_x * camera_x;
 	ray_dir_y = d->map.dir_y + d->map.plane_y * camera_x;

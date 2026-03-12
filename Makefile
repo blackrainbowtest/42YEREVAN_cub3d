@@ -24,6 +24,8 @@ SRC = \
 	$(SRC_DIR)/$(SRC_MAP)/map_stub.c \
 	$(SRC_DIR)/$(SRC_MAP)/map_query.c \
 	$(SRC_DIR)/$(SRC_PLAYER)/player_move.c \
+	$(SRC_DIR)/$(SRC_PLAYER)/player_update.c \
+	$(SRC_DIR)/$(SRC_PLAYER)/player_rotate.c \
 	$(SRC_DIR)/$(SRC_RENDER)/$(SRC_MINIMAP)/minimap_player_pos.c \
 	$(SRC_DIR)/$(SRC_RENDER)/$(SRC_MINIMAP)/minimap_ray.c \
 	$(SRC_DIR)/$(SRC_RENDER)/$(SRC_MINIMAP)/minimap_utils.c \
