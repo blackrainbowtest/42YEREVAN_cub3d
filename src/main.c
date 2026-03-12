@@ -12,20 +12,26 @@
 
 #include "cub3d.h"
 
+static void	register_hooks(t_data *d)
+{
+	mlx_hook(d->mlx.win, EV_KEYDOWN, 1L << 0, on_keydown, d);
+	mlx_hook(d->mlx.win, EV_KEYUP, 1L << 1, on_keyup, d);
+	mlx_hook(d->mlx.win, EV_DESTROY, 0, on_destroy, d);
+	mlx_loop_hook(d->mlx.mlx, render_frame, d);
+}
+
 int	main(void)
 {
 	t_data	d;
 
+	ft_memset(&d, 0, sizeof(d));
 	if (app_init(&d) != 0)
 		return (ERROR);
 	if (map_load_stub(&d.map) != 0)
 		return (ERROR);
 	if (load_textures(&d) != 0)
-		return (ERROR);
-	mlx_loop_hook(d.mlx.mlx, render_frame, &d);
-	mlx_hook(d.mlx.win, EV_KEYDOWN, 1L << 0, on_keydown, &d);
-	mlx_hook(d.mlx.win, EV_KEYUP, 1L << 1, on_keyup, &d);
-	mlx_hook(d.mlx.win, EV_DESTROY, 0, on_destroy, &d);
+		return (clean_exit(&d, ERROR));
+	register_hooks(&d);
 	mlx_loop(d.mlx.mlx);
 	return (0);
 }

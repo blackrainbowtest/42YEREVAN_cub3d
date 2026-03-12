@@ -14,7 +14,6 @@
 
 int	app_init(t_data *d)
 {
-	ft_memset(d, 0, sizeof(t_data));
 	d->mlx.w = WINDOW_WIDTH;
 	d->mlx.h = WINDOW_HEIGHT;
 	d->mlx.mlx = mlx_init();
