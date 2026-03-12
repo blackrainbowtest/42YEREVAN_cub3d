@@ -13,12 +13,14 @@ SRC_MINIMAP = minimap
 SRC_UTILS = utils
 SRC_ENGINE = engine
 SRC_RAYCAST = raycast
+SRC_LOADER = loader
 SRC = \
 	$(SRC_DIR)/$(SRC_ENGINE)/$(SRC_RAYCAST)/raycast_cast.c \
 	$(SRC_DIR)/$(SRC_ENGINE)/$(SRC_RAYCAST)/raycast_dda.c \
 	$(SRC_DIR)/$(SRC_ENGINE)/$(SRC_RAYCAST)/raycast_init.c \
 	$(SRC_DIR)/$(SRC_HOOK)/hooks.c \
 	$(SRC_DIR)/$(SRC_INIT)/init.c \
+	$(SRC_DIR)/$(SRC_LOADER)/loader.c \
 	$(SRC_DIR)/$(SRC_MAP)/map_stub.c \
 	$(SRC_DIR)/$(SRC_MAP)/map_query.c \
 	$(SRC_DIR)/$(SRC_PLAYER)/player_move.c \

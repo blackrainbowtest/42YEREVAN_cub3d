@@ -18,7 +18,7 @@ int	on_keydown(int keycode, void *param)
 
 	d = (t_data *)param;
 	if (keycode == KEY_ESC)
-		return (clean_exit(d, 0));
+		clean_exit(d, 0);
 	if (keycode == KEY_W)
 		d->move.forward = 1;
 	if (keycode == KEY_S)

@@ -47,7 +47,7 @@ Return Value:
 
 Returns 0 if initialization succeeds.
 
-Returns MLX_ERROR if any of the MLX initialization steps fail.
+Returns ERROR if any of the MLX initialization steps fail.
 
 
 Initialization Steps:
@@ -165,7 +165,7 @@ Error Handling:
 
 Each MLX initialization step is validated.
 
-If any step fails the function returns MLX_ERROR.
+If any step fails the function returns ERROR.
 
 This allows the caller to terminate the program safely.
 

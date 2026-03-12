@@ -27,17 +27,17 @@ int	app_init(t_data *d)
 	d->mlx.h = WINDOW_HEIGHT;
 	d->mlx.mlx = mlx_init();
 	if (!d->mlx.mlx)
-		return (MLX_ERROR);
+		return (ERROR);
 	d->mlx.win = mlx_new_window(d->mlx.mlx, d->mlx.w, d->mlx.h, "cub3d");
 	if (!d->mlx.win)
-		return (MLX_ERROR);
+		return (ERROR);
 	d->img.img = mlx_new_image(d->mlx.mlx, d->mlx.w, d->mlx.h);
 	if (!d->img.img)
-		return (MLX_ERROR);
+		return (ERROR);
 	d->img.addr = mlx_get_data_addr(d->img.img, &d->img.bpp,
 			&d->img.line_len, &d->img.endian);
 	if (!d->img.addr)
-		return (MLX_ERROR);
+		return (ERROR);
 	camera_init(&d->map);
 	return (0);
 }

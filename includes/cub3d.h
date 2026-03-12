@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aramarak <aramarak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 16:14:38 by aramarak          #+#    #+#             */
-/*   Updated: 2026/03/10 21:43:58 by root             ###   ########.fr       */
+/*   Updated: 2026/03/12 19:42:29 by aramarak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CUB3D_H
 
 # include "../minilibx-linux/mlx.h"
+# include "../libraries/libft/libft.h"
 # include <stdlib.h>
 # include <math.h>
 # include <stdio.h>
@@ -234,6 +235,7 @@ void		camera_init(t_map *map);
 /*     src/loader            init.c                                           */
 /* ************************************************************************** */
 int			load_textures(t_data *d);
+int			load_texture(t_data *d, t_tex *tex, char *path);
 
 /* ************************************************************************** */
 /*     src/map                  map_query.c                                   */

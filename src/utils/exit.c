@@ -12,7 +12,7 @@
 
 #include "cub3d.h"
 
-void	clean_exit(t_data *d, int code)
+int	clean_exit(t_data *d, int code)
 {
 	int	i;
 
@@ -32,5 +32,5 @@ void	clean_exit(t_data *d, int code)
 	free_map_grid(d->map.grid);
 	free_paths(d->map);
 	*/
-	exit(code);
+	exit (code);
 }
