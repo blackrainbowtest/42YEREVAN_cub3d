@@ -54,11 +54,9 @@ void	draw_map_tiles(t_data *d)
 			screen_x = MINIMAP_X + x * MINIMAP_TILE;
 			screen_y = MINIMAP_Y + y * MINIMAP_TILE;
 			if (d->map.grid[y][x] == '1')
-				draw_tile_with_border(d, screen_x, screen_y,
-					MAP_COLOR_WALL, MAP_COLOR_GRID);
+				draw_tile_with_border(d, screen_x, screen_y, MAP_COLOR_WALL);
 			else
-				draw_tile_with_border(d, screen_x, screen_y,
-					MAP_COLOR_ELSE, MAP_COLOR_GRID);
+				draw_tile_with_border(d, screen_x, screen_y, MAP_COLOR_ELSE);
 			x++;
 		}
 		y++;

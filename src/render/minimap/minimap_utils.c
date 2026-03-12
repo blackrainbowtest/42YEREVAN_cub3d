@@ -30,8 +30,7 @@ void	draw_square(t_data *d, int x, int y, int color)
 	}
 }
 
-void	draw_tile_with_border(t_data *d, int x, int y, int fill_color,
-		int border_color)
+void	draw_tile_with_border(t_data *d, int x, int y, int fill_color)
 {
 	int	i;
 	int	j;
@@ -46,7 +45,7 @@ void	draw_tile_with_border(t_data *d, int x, int y, int fill_color,
 			color = fill_color;
 			if (i == 0 || j == 0 || i == MINIMAP_TILE - 1
 				|| j == MINIMAP_TILE - 1)
-				color = border_color;
+				color = MAP_COLOR_GRID;
 			ft_put_pixel(&d->img, x + j, y + i, color);
 			j++;
 		}

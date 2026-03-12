@@ -14,7 +14,7 @@
 
 void	camera_init(t_map *map)
 {
-	double plane_len;
+	double	plane_len;
 
 	plane_len = tan((SCENE_FOV * DEG_TO_RAD) / 2.0);
 	map->plane_x = -map->dir_y * plane_len;

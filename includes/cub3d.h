@@ -6,7 +6,7 @@
 /*   By: aramarak <aramarak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 16:14:38 by aramarak          #+#    #+#             */
-/*   Updated: 2026/03/12 20:22:07 by aramarak         ###   ########.fr       */
+/*   Updated: 2026/03/12 20:42:30 by aramarak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@
 # define MINIMAP_X				10
 # define MINIMAP_Y				10
 # define MINIMAP_FOV 			66.0
-# define MINIMAP_RAYS 			120
+# define MINIMAP_RAYS 			66
 /* ************************************************************************** */
 /*                               map types                                    */
 /* ************************************************************************** */
@@ -291,8 +291,7 @@ void		get_player_minimap_pos(t_data *d, int *x, int *y);
 /*     src/render/minimap      minimap_utils.c                                */
 /* ************************************************************************** */
 void		draw_square(t_data *d, int x, int y, int color);
-void		draw_tile_with_border(t_data *d, int x, int y, int fill_color,
-				int border_color);
+void		draw_tile_with_border(t_data *d, int x, int y, int fill_color);
 
 /* ************************************************************************** */
 /*     src/render/minimap      minimap.c                                      */
