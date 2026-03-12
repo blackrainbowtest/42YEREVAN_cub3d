@@ -6,7 +6,7 @@
 /*   By: aramarak <aramarak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 16:13:47 by aramarak          #+#    #+#             */
-/*   Updated: 2026/03/12 18:46:02 by aramarak         ###   ########.fr       */
+/*   Updated: 2026/03/12 20:08:47 by aramarak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(void)
 		return (ERROR);
 	camera_init(&d.map);
 	if (load_textures(&d) != 0)
-		clean_exit(&d, ERROR);
+		return (clean_exit(&d, ERROR));
 	register_hooks(&d);
 	mlx_loop(d.mlx.mlx);
 	return (0);
