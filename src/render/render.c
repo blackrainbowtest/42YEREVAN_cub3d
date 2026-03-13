@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aramarak <aramarak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 16:13:47 by aramarak          #+#    #+#             */
-/*   Updated: 2026/03/12 20:08:47 by aramarak         ###   ########.fr       */
+/*   Updated: 2026/03/12 19:40:09 by aramarak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void	register_hooks(t_data *d)
+void	ft_put_pixel(t_img *img, int x, int y, int color)
 {
-	mlx_hook(d->mlx.win, EV_KEYDOWN, 1L << 0, on_keydown, d);
-	mlx_hook(d->mlx.win, EV_KEYUP, 1L << 1, on_keyup, d);
-	mlx_hook(d->mlx.win, EV_DESTROY, 0, on_destroy, d);
-	mlx_loop_hook(d->mlx.mlx, render_frame, d);
+	char	*dst;
+
+	if (x < 0 || y < 0 || x >= WINDOW_WIDTH || y >= WINDOW_HEIGHT)
+		return ;
+	dst = img->addr + (y * img->line_len + x * (img->bpp / 8));
+	*(unsigned int *)dst = (unsigned int)color;
 }
 
-int	main(void)
+int	render_frame(void *param)
 {
-	t_data	d;
+	t_data	*d;
 
-	ft_memset(&d, 0, sizeof(d));
-	if (app_init(&d) != 0)
-		return (ERROR);
-	if (map_load_stub(&d.map) != 0)
-		return (ERROR);
-	camera_init(&d.map);
-	if (load_textures(&d) != 0)
-		return (clean_exit(&d, ERROR));
-	register_hooks(&d);
-	mlx_loop(d.mlx.mlx);
+	d = (t_data *)param;
+	player_update(d);
+	render_scene(d);
+	draw_minimap(d);
+	mlx_put_image_to_window(d->mlx.mlx, d->mlx.win, d->img.img, 0, 0);
 	return (0);
 }
