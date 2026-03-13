@@ -132,12 +132,12 @@ void	draw_column_pixels(t_data *d, int x, int start, int end, t_dda *r)
 		wall_x = compute_wall_x(r);
 		tex_x = (int)(wall_x * (double)t->width);
 
-		if (r->side == 0 && r->dir_x > 0)
+		if (r->side == 0 && r->dir_x < 0)
 			tex_x = t->width - tex_x - 1;
-		if (r->side == 1 && r->dir_y < 0)
+		if (r->side == 1 && r->dir_y > 0)
 			tex_x = t->width - tex_x - 1;
-		step = (double)t->height / (double)(end - start + 1);
-		tex_pos = 0.0;
+		step = (double)t->height / (double)(end - start);
+		tex_pos = (start - WINDOW_HEIGHT / 2 + line_height / 2) * step;
 		while (y <= end)
 		{
 			int tex_y = (int)tex_pos;
