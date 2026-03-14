@@ -84,7 +84,7 @@ void	draw_wall_column(t_data *d, int x, t_dda *r)
 		draw_start = 0;
 	if (draw_end > WINDOW_HEIGHT)
 		draw_end = WINDOW_HEIGHT - 1;
-	draw_column_pixels(d, x, draw_start, draw_end, r);
+	draw_column_pixels(d, x, draw_start, draw_end, line_height, r);
 }
 
 static int	get_wall_color(t_dda *r)
@@ -105,14 +105,14 @@ static int	get_wall_color(t_dda *r)
 	}
 }
 
-void	draw_column_pixels(t_data *d, int x, int start, int end, t_dda *r)
+void	draw_column_pixels(t_data *d, int x, int start, int end,
+		int line_height, t_dda *r)
 {
 	int				y;
 	int				tex_id;
 	t_tex			*t;
 	double			wall_x;
 	int				tex_x;
-	int				wall_height;
 	double			step;
 	double			tex_pos;
 	unsigned int	color;
@@ -137,11 +137,10 @@ void	draw_column_pixels(t_data *d, int x, int start, int end, t_dda *r)
 			tex_x = t->width - tex_x - 1;
 		if (r->side == 1 && r->dir_y > 0)
 			tex_x = t->width - tex_x - 1;
-		wall_height = end - start;
-		if (wall_height <= 0)
-			wall_height = 1;
-		step = (double)t->height / (double)wall_height;
-		tex_pos = (start - WINDOW_HEIGHT / 2 + wall_height / 2.0) * step;
+		if (line_height <= 0)
+			line_height = 1;
+		step = (double)t->height / (double)line_height;
+		tex_pos = (start - WINDOW_HEIGHT / 2 + line_height / 2.0) * step;
 		while (y <= end)
 		{
 			int tex_y = (int)tex_pos;

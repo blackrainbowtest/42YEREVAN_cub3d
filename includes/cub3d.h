@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramarak <aramarak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 16:14:38 by aramarak          #+#    #+#             */
-/*   Updated: 2026/03/12 20:42:30 by aramarak         ###   ########.fr       */
+/*   Updated: 2026/03/14 16:22:52 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -275,7 +275,8 @@ int			render_frame(void *param);
 /* ************************************************************************** */
 void		render_wall_column(t_data *d, int x);
 void		draw_wall_column(t_data *d, int x, t_dda *r);
-void		draw_column_pixels(t_data *d, int x, int start, int end, t_dda *r);
+void		draw_column_pixels(t_data *d, int x, int start, int end,
+			int line_height, t_dda *r);
 
 /* ************************************************************************** */
 /*     src/render         render_scene.c                                      */
