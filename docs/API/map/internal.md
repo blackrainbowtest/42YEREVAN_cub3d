@@ -3,11 +3,9 @@
 
 ## INTERNAL STATIC FUNCTIONS
 
-These functions are internal helpers and are not part of the public API.
-However they are documented for completeness.
+These helpers are internal to `map_stub.c` and documented for completeness.
 
-
-------------------------------------------------------------
+---
 
 ## is_spawn_char
 
@@ -16,31 +14,19 @@ Declaration:
 static int is_spawn_char(char c);
 ```
 
-Purpose:
+Summary:
 
-Checks whether a character represents a valid player spawn marker.
+Checks whether a map character is one of the allowed spawn markers.
 
+Parameters:
 
-Supported spawn characters:
-
-`N -> North`  
-`S -> South`  
-`E -> East`  
-`W -> West`  
-
+`c` - map cell character.
 
 Return value:
 
-`1 -> valid spawn character`  
-`0 -> not a spawn character`
+`1` if `c` is one of `N`, `S`, `E`, `W`; otherwise `0`.
 
-
-Example:
-```c
-if (is_spawn_char(grid[y][x]))
-    ...
-```
-------------------------------------------------------------
+---
 
 ## set_player_dir
 
@@ -49,36 +35,24 @@ Declaration:
 static void set_player_dir(t_map *map, char spawn);
 ```
 
-Purpose:
+Summary:
 
-Sets the player's initial direction vector based on the spawn character.
+Sets player direction vector from spawn marker.
 
+Parameters:
 
-Direction vectors:
+`map` - map/game context.
 
-`N -> (0, -1)`  
-`S -> (0, 1)`  
-`E -> (1, 0)`  
-`W -> (-1, 0)`  
+`spawn` - one of `N`, `S`, `E`, `W`.
 
+Flow:
 
-Explanation:
+1. Check spawn character.
+2. Assign matching `(dir_x, dir_y)` unit vector.
 
-The direction vector represents the direction the player is facing
-in map space.
+Notes:
 
-Example:
-
-`dir_x = 1`  
-`dir_y = 0`  
-
-means the player is looking east.
-
-
-Design note:
-
-Using direction vectors instead of angles simplifies movement and
-raycasting calculations.
+Direction vectors are later used by movement and raycasting.
 
 ---
 [⬆️ Back to Top](#top)

@@ -4,52 +4,33 @@
 # on_keyup
 
 Declaration:
+```c
 int on_keyup(int keycode, void *param);
+```
 
-Purpose:
-Handles keyboard release events.
+Summary:
 
-This function disables movement flags when the corresponding key is released.
+Handles key release events by clearing movement/rotation flags.
 
 Parameters:
 
-keycode
-Integer key code provided by MLX indicating which key was released.
+`keycode` - released key code from MLX.
 
-param
-Pointer to the main application context.
+`param` - pointer to global context (`t_data *`).
 
-Expected type:
-```bash
-t_data *
-```
-Logic:
+Return value:
 
-When a key is released the corresponding movement flag is reset.
+Returns `0`.
 
-Example:
-```bash
-if (keycode == KEY_W || keycode == KEY_AR_T)
-    d->move.forward = 0;
-```
-Supported keys:
-```bash
-KEY_W / AR_T -> stop moving forward
-KEY_S / AR_B -> stop moving backward
-KEY_A / AR_L -> stop rotating left
-KEY_D / AR_R -> stop rotating right
-```
-Why this is necessary:
+Flow:
 
-Movement is controlled by state flags.
+1. Cast `param` to `t_data *`.
+2. Reset released-key state flags:
+   `forward`, `backward`, `strafe_left`, `strafe_right`, `turn_left`, `turn_right`.
 
-Without on_keyup:
+Notes:
 
-press W -> forward = 1
-release W -> forward still = 1
-player never stops moving
-
-The key release event ensures correct input state management.
+Without this handler, movement flags can remain set after key release.
 
 ---
 [⬆️ Back to Top](#top)

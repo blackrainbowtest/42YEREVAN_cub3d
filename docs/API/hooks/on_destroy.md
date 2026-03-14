@@ -4,39 +4,30 @@
 # on_destroy
 
 Declaration:
+```c
 int on_destroy(void *param);
+```
 
-Purpose:
-Handles window destroy events.
+Summary:
 
-Triggered when the user closes the application window.
-
-Examples:
-clicking the window close button.
+Handles window close events and exits through unified cleanup.
 
 Parameters:
 
-param
-Pointer to the main application context.
+`param` - pointer to global context (`t_data *`).
 
-Expected type:
-```bash
-t_data *
-```
-Logic:
+Return value:
 
-The function casts the parameter to t_data* and calls:
-```bash
-clean_exit(d, 0);
-```
-This ensures the program exits through the normal cleanup procedure.
+Returns the result of `clean_exit(d, 0)`.
 
-Why this is necessary:
+Flow:
 
-Closing the window should perform the same cleanup as pressing ESC.
+1. Cast `param` to `t_data *`.
+2. Call cleanup/exit routine.
 
-Centralizing shutdown logic inside clean_exit() prevents duplicated code
-and ensures all resources are released correctly.
+Notes:
+
+Makes window-close behavior consistent with ESC exit path.
 
 ---
 [⬆️ Back to Top](#top)

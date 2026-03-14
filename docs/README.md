@@ -8,6 +8,10 @@ Cub3D is a graphical project using MiniLibX to render simple 3D scenes and learn
 ## Project roadmap
 - [Check roadmap](roadmap/roadmap.md)
 
+## Quick Recall
+- [Project Brief](PROJECT_BRIEF.md)
+- [Troubleshooting Notes](TROUBLESHOOTING.md)
+
 ## Table of Contents
 - [Flags Used](flags/flags.md)
 - [Functions Used](functions/functions.md)
@@ -24,6 +28,7 @@ MiniLibX is a lightweight graphics library for simple window and image manipulat
 ---
 ## Documentation
 - [API Reference](API/README.md)
+- [API Writing Template](API/TEMPLATE.md)
 
 ---
 ### Expandable Sections

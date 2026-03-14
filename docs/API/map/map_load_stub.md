@@ -8,17 +8,9 @@ Declaration:
 int map_load_stub(t_map *map);
 ```
 
-Purpose:
+Summary:
 
-Creates a temporary hardcoded map used during early development
-before implementing the real map parser.
-
-This function allows testing:
-
-- rendering
-- raycasting
-- player movement
-- minimap
+Builds a hardcoded development map and initializes player spawn state.
 
 
 Map layout used:
@@ -30,72 +22,24 @@ Map layout used:
 111111
 ```
 
-Explanation:
+Legend:
 
-`1 = wall`  
-`0 = empty floor`  
-`E = player spawn position`  
+`1` = wall, `0` = floor, spawn marker (`N/S/E/W`) = player start.
 
 
-Initialization Steps:
+Flow:
 
-1. Assign grid pointer
-
-`map->grid = grid;`  
-
-
-2. Set map dimensions
-
-`map->width = 6`  
-`map->height = 5`
+1. Assign static grid pointer and map dimensions.
+2. Set default colors and texture paths.
+3. Scan grid for first spawn marker.
+4. Place player at tile center (`x + 0.5`, `y + 0.5`).
+5. Set initial direction from spawn marker.
+6. If no spawn is found, use fallback position/direction.
 
 
-3. Search for player spawn
+Return value:
 
-The function scans the grid to find a spawn character:
-
-`N`  
-`S`  
-`E`  
-`W`  
-
-
-### When a spawn is found:
-
-`map->player_x = x + 0.5`  
-`map->player_y = y + 0.5`
-
-
-### Why +0.5?
-
-This places the player at the **center of the tile**
-instead of the top-left corner.
-
-
-4. Set player direction
-
-The spawn character determines the initial facing direction.
-
-Example:
-
-`E -> dir_x = 1`  
-     `dir_y = 0`
-
-
-5. Fallback spawn
-
-If no spawn character is found, a default position is used:
-
-`player_x = 3`  
-`player_y = 3`  
-
-`dir_x = 0`  
-`dir_y = -1`  
-
-
-### Return value:
-
-Returns `0` on success.
+Returns `0`.
 
 ---
 [⬆️ Back to Top](#top)
