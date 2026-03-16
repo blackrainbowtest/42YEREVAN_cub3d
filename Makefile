@@ -3,38 +3,43 @@ NAME = cub3d
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC_DIR = src
-SRC_HOOK = hooks
-SRC_INIT = init
-SRC_MAP = map
-SRC_PLAYER = player
-SRC_RENDER = render
-SRC_MINIMAP = minimap
-SRC_UTILS = utils
-SRC_ENGINE = engine
-SRC_RAYCAST = raycast
-SRC_LOADER = loader
+SRC_DIR      = src
+
+ENGINE_DIR   = $(SRC_DIR)/engine
+RAYCAST_DIR  = $(ENGINE_DIR)/raycast
+
+HOOK_DIR     = $(SRC_DIR)/hooks
+INIT_DIR     = $(SRC_DIR)/init
+MAP_DIR      = $(SRC_DIR)/map
+PLAYER_DIR   = $(SRC_DIR)/player
+
+RENDER_DIR   = $(SRC_DIR)/render
+MINIMAP_DIR  = $(RENDER_DIR)/minimap
+
+UTILS_DIR    = $(SRC_DIR)/utils
+LOADER_DIR   = $(SRC_DIR)/loader
+
 SRC = \
-	$(SRC_DIR)/$(SRC_ENGINE)/$(SRC_RAYCAST)/raycast_cast.c \
-	$(SRC_DIR)/$(SRC_ENGINE)/$(SRC_RAYCAST)/raycast_dda.c \
-	$(SRC_DIR)/$(SRC_ENGINE)/$(SRC_RAYCAST)/raycast_init.c \
-	$(SRC_DIR)/$(SRC_HOOK)/hooks.c \
-	$(SRC_DIR)/$(SRC_INIT)/init.c \
-	$(SRC_DIR)/$(SRC_LOADER)/loader.c \
-	$(SRC_DIR)/$(SRC_MAP)/map_stub.c \
-	$(SRC_DIR)/$(SRC_MAP)/map_query.c \
-	$(SRC_DIR)/$(SRC_PLAYER)/player_move.c \
-	$(SRC_DIR)/$(SRC_PLAYER)/player_update.c \
-	$(SRC_DIR)/$(SRC_PLAYER)/player_rotate.c \
-	$(SRC_DIR)/$(SRC_RENDER)/$(SRC_MINIMAP)/minimap_player_pos.c \
-	$(SRC_DIR)/$(SRC_RENDER)/$(SRC_MINIMAP)/minimap_ray.c \
-	$(SRC_DIR)/$(SRC_RENDER)/$(SRC_MINIMAP)/minimap_utils.c \
-	$(SRC_DIR)/$(SRC_RENDER)/$(SRC_MINIMAP)/minimap.c \
-	$(SRC_DIR)/$(SRC_RENDER)/render_scene.c \
-	$(SRC_DIR)/$(SRC_RENDER)/render_walls.c \
-	$(SRC_DIR)/$(SRC_RENDER)/render.c \
-	$(SRC_DIR)/$(SRC_UTILS)/error.c \
-	$(SRC_DIR)/$(SRC_UTILS)/exit.c \
+	$(RAYCAST_DIR)/raycast_cast.c \
+	$(RAYCAST_DIR)/raycast_dda.c \
+	$(RAYCAST_DIR)/raycast_init.c \
+	$(HOOK_DIR)/hooks.c \
+	$(INIT_DIR)/init.c \
+	$(LOADER_DIR)/loader.c \
+	$(MAP_DIR)/map_stub.c \
+	$(MAP_DIR)/map_query.c \
+	$(PLAYER_DIR)/player_move.c \
+	$(PLAYER_DIR)/player_update.c \
+	$(PLAYER_DIR)/player_rotate.c \
+	$(MINIMAP_DIR)/minimap_player_pos.c \
+	$(MINIMAP_DIR)/minimap_ray.c \
+	$(MINIMAP_DIR)/minimap_utils.c \
+	$(MINIMAP_DIR)/minimap.c \
+	$(RENDER_DIR)/render_scene.c \
+	$(RENDER_DIR)/render_walls.c \
+	$(RENDER_DIR)/render.c \
+	$(UTILS_DIR)/error.c \
+	$(UTILS_DIR)/exit.c \
 	$(SRC_DIR)/main.c
 
 OBJ = $(SRC:.c=.o)
