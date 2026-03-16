@@ -12,7 +12,8 @@
 
 #include "cub3d.h"
 
-static void	get_ray_hit_dda(t_data *d, double dir_x, double dir_y, double hit[2])
+static void	get_ray_hit_dda(t_data *d, double dir_x, double dir_y,
+	double hit[2])
 {
 	t_dda	r;
 
@@ -62,7 +63,6 @@ static void	draw_minimap_rays_loop(t_data *d)
 		angle += angle_step;
 		i++;
 	}
-	/* Always draw the exact facing ray, even when MINIMAP_RAYS is even. */
 	draw_single_ray(d, d->map.dir_x, d->map.dir_y);
 }
 
