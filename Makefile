@@ -34,6 +34,7 @@ SRC = \
 	$(MINIMAP_DIR)/minimap_player_pos.c \
 	$(MINIMAP_DIR)/minimap_ray.c \
 	$(MINIMAP_DIR)/minimap_utils.c \
+	$(MINIMAP_DIR)/minimap_line.c \
 	$(MINIMAP_DIR)/minimap.c \
 	$(RENDER_DIR)/render_scene.c \
 	$(RENDER_DIR)/render_walls.c \
