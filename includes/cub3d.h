@@ -6,7 +6,7 @@
 /*   By: aramarak <aramarak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 16:14:38 by aramarak          #+#    #+#             */
-/*   Updated: 2026/03/17 19:00:25 by aramarak         ###   ########.fr       */
+/*   Updated: 2026/03/17 20:39:59 by aramarak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,14 @@
 /* ************************************************************************** */
 /*                               structures                                   */
 /* ************************************************************************** */
+typedef struct s_wall_column
+{
+	int	line_height;
+	int	draw_start;
+	int	draw_end;
+	int	color;
+}	t_wall_column;
+
 typedef struct s_move
 {
 	int		forward;
@@ -259,16 +267,24 @@ void			player_strafe_right(t_data *d);
 /*     src/player            player_rotate.c                                  */
 /* ************************************************************************** */
 void			player_rotate(t_data *d, double angle);
+
 /* ************************************************************************** */
 /*     src/player            player_update.c                                  */
 /* ************************************************************************** */
 void			player_update(t_data *d);
 
 /* ************************************************************************** */
-/*     src/render               render.c                                      */
+/*     src/render         render_column_utils.c                               */
 /* ************************************************************************** */
-void			ft_put_pixel(t_img *img, int x, int y, int color);
-int				render_frame(void *param);
+void			draw_ceiling(t_data *d, int x, int *y, int draw_start);
+void			draw_floor(t_data *d, int x, int y);
+void			draw_flat_wall(t_data *d, int x, int *y, t_wall_column *col);
+void			draw_textured_wall(t_data *d, int x, int *y, t_wall_column *col, t_dda *r, t_tex *t);
+
+/* ************************************************************************** */
+/*     src/render         render_scene.c                                      */
+/* ************************************************************************** */
+void			render_scene(t_data *d);
 
 /* ************************************************************************** */
 /*     src/render         render_utils.c                                      */
@@ -281,13 +297,15 @@ int				pick_tex_id(t_dda *r);
 /* ************************************************************************** */
 void			render_wall_column(t_data *d, int x);
 void			draw_wall_column(t_data *d, int x, t_dda *r);
-void			draw_column_pixels(t_data *d, int x, int start, int end,
-					int line_height, t_dda *r);
+void			draw_column_pixels(t_data *d, int x, t_wall_column *col,
+					t_dda *r);
+double			compute_wall_x(t_dda *r);
 
 /* ************************************************************************** */
-/*     src/render         render_scene.c                                      */
+/*     src/render               render.c                                      */
 /* ************************************************************************** */
-void			render_scene(t_data *d);
+void			ft_put_pixel(t_img *img, int x, int y, int color);
+int				render_frame(void *param);
 
 /* ************************************************************************** */
 /*     src/render/minimap      minimap_player_pos.c                           */

@@ -12,7 +12,7 @@
 
 #include "cub3d.h"
 
-static double	compute_wall_x(t_dda *r)
+double	compute_wall_x(t_dda *r)
 {
 	double	wall_x;
 
@@ -34,28 +34,25 @@ void	render_wall_column(t_data *d, int x)
 	camera_x = 2.0 * x / (double)WINDOW_WIDTH - 1.0;
 	ray_dir_x = d->map.dir_x + d->map.plane_x * camera_x;
 	ray_dir_y = d->map.dir_y + d->map.plane_y * camera_x;
-
 	raycast_dda(d, ray_dir_x, ray_dir_y, &r);
 	draw_wall_column(d, x, &r);
 }
 
-
 void	draw_wall_column(t_data *d, int x, t_dda *r)
 {
-	int	line_height;
-	int	draw_start;
-	int	draw_end;
+	t_wall_column	col;
 
 	if (r->dist < 0.0001)
 		r->dist = 0.0001;
-	line_height = (int)(WINDOW_HEIGHT / r->dist);
-	draw_start = -line_height / 2 + WINDOW_HEIGHT / 2;
-	draw_end = line_height / 2 + WINDOW_HEIGHT / 2;
-	if (draw_start < 0)
-		draw_start = 0;
-	if (draw_end > WINDOW_HEIGHT)
-		draw_end = WINDOW_HEIGHT - 1;
-	draw_column_pixels(d, x, draw_start, draw_end, line_height, r);
+	col.line_height = (int)(WINDOW_HEIGHT / r->dist);
+	col.draw_start = -col.line_height / 2 + WINDOW_HEIGHT / 2;
+	col.draw_end = col.line_height / 2 + WINDOW_HEIGHT / 2;
+	if (col.draw_start < 0)
+		col.draw_start = 0;
+	if (col.draw_end > WINDOW_HEIGHT)
+		col.draw_end = WINDOW_HEIGHT - 1;
+	col.color = 0;
+	draw_column_pixels(d, x, &col, r);
 }
 
 static int	get_wall_color(t_dda *r)
@@ -76,50 +73,24 @@ static int	get_wall_color(t_dda *r)
 	}
 }
 
-void	draw_column_pixels(t_data *d, int x, int start, int end,
-		int line_height, t_dda *r)
+void	draw_column_pixels(t_data *d, int x, t_wall_column *col, t_dda *r)
 {
 	int				y;
 	int				tex_id;
 	t_tex			*t;
-	double			wall_x;
-	int				tex_x;
-	double			step;
-	double			tex_pos;
-	unsigned int	color;
 
 	y = 0;
-	while (y < start)
-		ft_put_pixel(&d->img, x, y++, d->map.ceil_color);
 	tex_id = pick_tex_id(r);
 	t = &d->tex[tex_id];
+	draw_ceiling(d, x, &y, col->draw_start);
 	if (!t->img || !t->addr || t->width <= 0 || t->height <= 0)
 	{
-		int flat = get_wall_color(r);
-		while (y <= end)
-			ft_put_pixel(&d->img, x, y++, flat);
+		col->color = get_wall_color(r);
+		draw_flat_wall(d, x, &y, col);
 	}
 	else
 	{
-		wall_x = compute_wall_x(r);
-		tex_x = (int)(wall_x * (double)t->width);
-
-		if (r->side == 0 && r->dir_x < 0)
-			tex_x = t->width - tex_x - 1;
-		if (r->side == 1 && r->dir_y > 0)
-			tex_x = t->width - tex_x - 1;
-		if (line_height <= 0)
-			line_height = 1;
-		step = (double)t->height / (double)line_height;
-		tex_pos = (start - WINDOW_HEIGHT / 2 + line_height / 2.0) * step;
-		while (y <= end)
-		{
-			int tex_y = (int)tex_pos;
-			color = texel_at(t, tex_x, tex_y);
-			ft_put_pixel(&d->img, x, y++, (int)color);
-			tex_pos += step;
-		}
+		draw_textured_wall(d, x, &y, col, r, t);
 	}
-	while (y < WINDOW_HEIGHT)
-		ft_put_pixel(&d->img, x, y++, d->map.floor_color);
+	draw_floor(d, x, y);
 }
