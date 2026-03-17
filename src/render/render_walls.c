@@ -12,35 +12,6 @@
 
 #include "cub3d.h"
 
-static int	pick_tex_id(t_dda *r)
-{
-	if (r->side == 0)
-	{
-		if (r->dir_x > 0)
-			return (TEX_WE);
-		return (TEX_EA);
-	}
-	if (r->dir_y > 0)
-		return (TEX_NO);
-	return (TEX_SO);
-}
-
-static unsigned int	texel_at(t_tex *t, int x, int y)
-{
-	char	*dst;
-
-	if (x < 0)
-		x = 0;
-	if (y < 0)
-		y = 0;
-	if (x >= t->width)
-		x = t->width - 1;
-	if (y >= t->height)
-		y = t->height - 1;
-	dst = t->addr + (y * t->line_len + x * (t->bpp / 8));
-	return (*(unsigned int *)dst);
-}
-
 static double	compute_wall_x(t_dda *r)
 {
 	double	wall_x;

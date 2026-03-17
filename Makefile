@@ -37,6 +37,7 @@ SRC = \
 	$(MINIMAP_DIR)/minimap_line.c \
 	$(MINIMAP_DIR)/minimap.c \
 	$(RENDER_DIR)/render_scene.c \
+	$(RENDER_DIR)/render_utils.c \
 	$(RENDER_DIR)/render_walls.c \
 	$(RENDER_DIR)/render.c \
 	$(UTILS_DIR)/error.c \

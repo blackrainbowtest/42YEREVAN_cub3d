@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aramarak <aramarak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 16:14:38 by aramarak          #+#    #+#             */
-/*   Updated: 2026/03/14 16:22:52 by root             ###   ########.fr       */
+/*   Updated: 2026/03/17 19:00:25 by aramarak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,112 +206,118 @@ typedef struct s_data
 /* ************************************************************************** */
 /*     src/engine/raycast     raycast_dda .c                                  */
 /* ************************************************************************** */
-void		raycast_dda(t_data *d, double dir_x, double dir_y, t_dda *r);
+void			raycast_dda(t_data *d, double dir_x, double dir_y, t_dda *r);
 
 /* ************************************************************************** */
 /*     src/engine/raycast     raycast_cast .c                                 */
 /* ************************************************************************** */
-void		cast_dda(t_data *d, t_dda *r);
+void			cast_dda(t_data *d, t_dda *r);
 
 /* ************************************************************************** */
 /*     src/engine/raycast     raycast_init .c                                 */
 /* ************************************************************************** */
-void		init_dda(t_data *d, double dir_x, double dir_y, t_dda *r);
+void			init_dda(t_data *d, double dir_x, double dir_y, t_dda *r);
 
 /* ************************************************************************** */
 /*     src/hooks              hooks .c                                        */
 /* ************************************************************************** */
-int			on_keydown(int keycode, void *param);
-int			on_keyup(int keycode, void *param);
-int			on_destroy(void *param);
+int				on_keydown(int keycode, void *param);
+int				on_keyup(int keycode, void *param);
+int				on_destroy(void *param);
 
 /* ************************************************************************** */
 /*     src/init              init.c                                           */
 /* ************************************************************************** */
-int			app_init(t_data *d);
-void		camera_init(t_map *map);
+int				app_init(t_data *d);
+void			camera_init(t_map *map);
 
 /* ************************************************************************** */
 /*     src/loader            init.c                                           */
 /* ************************************************************************** */
-int			load_textures(t_data *d);
-int			load_texture(t_data *d, t_tex *tex, char *path);
+int				load_textures(t_data *d);
+int				load_texture(t_data *d, t_tex *tex, char *path);
 
 /* ************************************************************************** */
 /*     src/map                  map_query.c                                   */
 /* ************************************************************************** */
-int			is_wall(t_map *m, double x, double y);
+int				is_wall(t_map *m, double x, double y);
 
 /* ************************************************************************** */
 /*     src/map                  map_stub.c                                    */
 /* ************************************************************************** */
-int			map_load_stub(t_map *map);
+int				map_load_stub(t_map *map);
 
 /* ************************************************************************** */
 /*     src/player            player_move.c                                    */
 /* ************************************************************************** */
-void		player_move_forward(t_data *d);
-void		player_move_backward(t_data *d);
-void		player_strafe_left(t_data *d);
-void		player_strafe_right(t_data *d);
+void			player_move_forward(t_data *d);
+void			player_move_backward(t_data *d);
+void			player_strafe_left(t_data *d);
+void			player_strafe_right(t_data *d);
 
 /* ************************************************************************** */
 /*     src/player            player_rotate.c                                  */
 /* ************************************************************************** */
-void		player_rotate(t_data *d, double angle);
+void			player_rotate(t_data *d, double angle);
 /* ************************************************************************** */
 /*     src/player            player_update.c                                  */
 /* ************************************************************************** */
-void		player_update(t_data *d);
+void			player_update(t_data *d);
 
 /* ************************************************************************** */
 /*     src/render               render.c                                      */
 /* ************************************************************************** */
-void		ft_put_pixel(t_img *img, int x, int y, int color);
-int			render_frame(void *param);
+void			ft_put_pixel(t_img *img, int x, int y, int color);
+int				render_frame(void *param);
+
+/* ************************************************************************** */
+/*     src/render         render_utils.c                                      */
+/* ************************************************************************** */
+unsigned int	texel_at(t_tex *t, int x, int y);
+int				pick_tex_id(t_dda *r);
 
 /* ************************************************************************** */
 /*     src/render         render_walls.c                                      */
 /* ************************************************************************** */
-void		render_wall_column(t_data *d, int x);
-void		draw_wall_column(t_data *d, int x, t_dda *r);
-void		draw_column_pixels(t_data *d, int x, int start, int end,
-			int line_height, t_dda *r);
+void			render_wall_column(t_data *d, int x);
+void			draw_wall_column(t_data *d, int x, t_dda *r);
+void			draw_column_pixels(t_data *d, int x, int start, int end,
+					int line_height, t_dda *r);
 
 /* ************************************************************************** */
 /*     src/render         render_scene.c                                      */
 /* ************************************************************************** */
-void		render_scene(t_data *d);
+void			render_scene(t_data *d);
 
 /* ************************************************************************** */
 /*     src/render/minimap      minimap_player_pos.c                           */
 /* ************************************************************************** */
-void		get_player_minimap_pos(t_data *d, int *x, int *y);
+void			get_player_minimap_pos(t_data *d, int *x, int *y);
 
 /* ************************************************************************** */
 /*     src/render/minimap      minimap_utils.c                                */
 /* ************************************************************************** */
-void		draw_square(t_data *d, int x, int y, int color);
-void		draw_tile_with_border(t_data *d, int x, int y, int fill_color);
+void			draw_square(t_data *d, int x, int y, int color);
+void			draw_tile_with_border(t_data *d, int x, int y, int fill_color);
 
 /* ************************************************************************** */
 /*     src/render/minimap      minimap.c                                      */
 /* ************************************************************************** */
-void		draw_minimap(t_data *d);
-void		draw_map_tiles(t_data *d);
-void		draw_player_minimap(t_data *d);
-void		draw_player_direction(t_data *d);
-void		draw_line(t_data *d, t_line l);
+void			draw_minimap(t_data *d);
+void			draw_map_tiles(t_data *d);
+void			draw_player_minimap(t_data *d);
+void			draw_player_direction(t_data *d);
+void			draw_line(t_data *d, t_line l);
 
 /* ************************************************************************** */
 /*     src/render/minimap      minimap_ray.c                                  */
 /* ************************************************************************** */
-void		draw_minimap_rays(t_data *d);
+void			draw_minimap_rays(t_data *d);
 
 /* ************************************************************************** */
 /*     src/utils                    exit.c                                    */
 /* ************************************************************************** */
-int			clean_exit(t_data *d, int code);
+int				clean_exit(t_data *d, int code);
 
 
 #endif	//CUB3D_H
