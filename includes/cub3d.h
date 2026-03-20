@@ -205,6 +205,21 @@ typedef struct s_data
 	t_move	move;
 }	t_data;
 
+typedef struct s_render_ctx
+{
+	t_data			*d;
+	t_wall_column	*col;
+	t_dda			*r;
+	t_tex			*t;
+	int				x;
+	int				*y;
+	// temp values
+	double			wall_x;
+	int				tex_x;
+	double			step;
+	double			tex_pos;
+}	t_render_ctx;
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                               cub3d API                                    */
